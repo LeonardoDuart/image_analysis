@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7250 64-bit) (preloaded format=xelatex 2019.11.16)  16 NOV 2019 18:28
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7250 64-bit) (preloaded format=xelatex 2019.11.16)  16 NOV 2019 23:42
 entering extended mode
 **./SLIDES.tex
 (SLIDES.tex
@@ -1914,7 +1914,7 @@ Overfull \vbox (85.6071pt too high) detected at line 438
 File: IMAGENS/girar_modificar.png Graphic file (type bmp)
 <IMAGENS/girar_modificar.png>
 
-Overfull \vbox (38.68425pt too high) detected at line 451
+Overfull \vbox (20.99274pt too high) detected at line 451
  []
 
 [12
@@ -2063,12 +2063,12 @@ Overfull \vbox (2.63605pt too high) detected at line 637
 File: IMAGENS/grafico_ponto.jpg Graphic file (type bmp)
 <IMAGENS/grafico_ponto.jpg>
 
-Overfull \hbox (10.71335pt too wide) in paragraph at lines 662--662
+Overfull \hbox (10.71335pt too wide) in paragraph at lines 664--664
 [][]  
  []
 
 
-Overfull \vbox (11.40057pt too high) detected at line 662
+Overfull \vbox (11.40057pt too high) detected at line 664
  []
 
 [26
@@ -2082,12 +2082,12 @@ Overfull \vbox (11.40057pt too high) detected at line 662
 File: IMAGENS/grafico_ponto1.png Graphic file (type bmp)
 <IMAGENS/grafico_ponto1.png>
 
-Overfull \hbox (10.71335pt too wide) in paragraph at lines 689--689
+Overfull \hbox (10.71335pt too wide) in paragraph at lines 691--691
 [][]  
  []
 
 
-Overfull \vbox (11.40057pt too high) detected at line 689
+Overfull \vbox (11.40057pt too high) detected at line 691
  []
 
 [28
@@ -2099,7 +2099,7 @@ Overfull \vbox (11.40057pt too high) detected at line 689
 File: IMAGENS/grafico_ponto2.png Graphic file (type bmp)
 <IMAGENS/grafico_ponto2.png>
 )
-Overfull \vbox (54.40575pt too high) detected at line 712
+Overfull \vbox (54.40575pt too high) detected at line 714
  []
 
 [29
@@ -2111,7 +2111,7 @@ Overfull \vbox (54.40575pt too high) detected at line 712
 File: IMAGENS/grafico_ponto3.png Graphic file (type bmp)
 <IMAGENS/grafico_ponto3.png>
 )
-Overfull \vbox (54.40575pt too high) detected at line 735
+Overfull \vbox (54.40575pt too high) detected at line 737
  []
 
 [30
@@ -2120,7 +2120,7 @@ Overfull \vbox (54.40575pt too high) detected at line 735
 \openout4 = `SLIDES.vrb'.
 
 (SLIDES.vrb)
-Overfull \vbox (61.06873pt too high) detected at line 4407
+Overfull \vbox (61.06873pt too high) detected at line 4409
  []
 
 [31
@@ -2134,7 +2134,7 @@ Overfull \vbox (61.06873pt too high) detected at line 4407
 File: IMAGENS/grafico_final.pdf Graphic file (type pdf)
 <use IMAGENS/grafico_final.pdf>
 
-Overfull \vbox (51.78946pt too high) detected at line 4443
+Overfull \vbox (51.78946pt too high) detected at line 4445
  []
 
 [33
@@ -2149,7 +2149,31 @@ File: tempo.pdf Graphic file (type pdf)
 <use tempo.pdf>
 [35
 
-] [36
+]
+File: IMAGENS/Frida.jpg Graphic file (type bmp)
+<IMAGENS/Frida.jpg>
+
+Overfull \vbox (51.76547pt too high) detected at line 4484
+ []
+
+[36
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [37
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb
+File: SLIDES_files/figure-beamer/10.1-1.pdf Graphic file (type pdf)
+<use SLIDES_files/figure-beamer/10.1-1.pdf>
+)
+Overfull \vbox (79.04297pt too high) detected at line 4523
+ []
+
+[38
 
 ]
 \tf@nav=\write6
@@ -2161,22 +2185,22 @@ File: tempo.pdf Graphic file (type pdf)
 \tf@snm=\write8
 \openout8 = `SLIDES.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4476.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 4476.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4525.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 4525.
 (SLIDES.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4476.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 4476.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4525.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 4525.
  ) 
 Here is how much of TeX's memory you used:
- 42924 strings out of 427240
- 836775 string characters out of 3141440
- 2255128 words of memory out of 3000000
- 46711 multiletter control sequences out of 15000+200000
+ 42955 strings out of 427240
+ 837375 string characters out of 3141440
+ 2255350 words of memory out of 3000000
+ 46736 multiletter control sequences out of 15000+200000
  535872 words of font info for 63 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  71i,13n,115p,1809b,710s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on SLIDES.pdf (36 pages).
+Output written on SLIDES.pdf (38 pages).
 
 ! log4cxx: setFile(C:\Users\nick_\AppData\Local\MiKTeX\2.9\miktex\log/xelatex.log,true) call failed.
 ! log4cxx: IO Exception : status code = 720005

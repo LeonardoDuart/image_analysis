@@ -20,11 +20,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 \begin{itemize}
 	\item TIFF
+	\item BMP
 	\item JPEG
 	\item PNG
 	\item SVG
 	\item GIF
-	\item BMP
 	\item PDF
 	\item EPS
 \end{itemize}
@@ -125,7 +125,7 @@ logo
 # Girar e modificar
 \small
 
-\includegraphics[width=4.0in]{IMAGENS/girar_modificar}
+\includegraphics[width=3.7in]{IMAGENS/girar_modificar}
 \begin{center}
 \tiny{Fonte: https://cran.r-project.org/web/packages/magick/vignettes/intro.html}
 \end{center}
@@ -283,12 +283,21 @@ $\Rightarrow$ image_animate(img)
 
 # Salvar o GIF na máquina
 
+```{r 7.2, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+#im_1 <- image_read("c:/Users/nick_/Downloads/im_1.jpg")
+#img <- c(im_1, ... , im_n)
+#img <- image_scale(img, "300x300")
+#img <- image_animate(img)
+```
+
 ```{r 7.3, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 library(gifski)
 
 #image_write_gif(img, path = "grafico.gif")
-#image_write_gif(img, path = "grafico_delay.gif", delay = 1/6)
+# É possivel adicionar um delay
+#image_write_gif(img, path = "grafico_delay.gif",
+#                delay = 1/6)
 
 ```
 
@@ -386,7 +395,7 @@ grafico_final <-ggplot(data = dat,
 
 # Fraqueza na leitura de PDF
 
-```{r 5.7, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r 9, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 require(pdftools)
 tempo <- image_read_pdf("C:/Users/nick_/OneDrive/Área de Trabalho/image_analysis/Slide/IMAGENS/temp.pdf")
@@ -412,3 +421,24 @@ image_write(tempo, path = "tempo.pdf", format = "pdf")
 
 # Filtro geométrico
 \small
+
+Por meio do pacote "imager" é possível estilizar uma imagem e deixá-la pixelizada:
+
+```{r 10, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(imager)
+foto <- load.image("C:/Users/nick_/Downloads/foto.jpg")
+
+foto2<- foto %>%  resize(size_x = 80, size_y = 80, interpolation_type = 1L)
+suppressMessages(suppressWarnings(library(imager)))
+foto2 <- rowMeans(foto2, dims = 2)
+```
+
+# Filtro geométrico
+\small
+
+```{r 10.1, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+foto2 %>%
+  apply(1, rev) %>% 
+  t() %>% 
+  image(col = grey.colors(256), axes = FALSE)
+```

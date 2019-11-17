@@ -442,7 +442,7 @@ Oos principais pacotes para manipulação de imagem são:
 
 \small
 
-\includegraphics[width=4.0in]{IMAGENS/girar_modificar}
+\includegraphics[width=3.7in]{IMAGENS/girar_modificar}
 
 \begin{center}
 \tiny{Fonte: https://cran.r-project.org/web/packages/magick/vignettes/intro.html}
@@ -644,7 +644,9 @@ image\_read(``C:/Users/nick\_/Downloads/im\_n.jpg'')
 \KeywordTok{library}\NormalTok{(gifski)}
 
 \CommentTok{#image_write_gif(img, path = "grafico.gif")}
-\CommentTok{#image_write_gif(img, path = "grafico_delay.gif", delay = 1/6)}
+\CommentTok{# É possivel adicionar um delay}
+\CommentTok{#image_write_gif(img, path = "grafico_delay.gif",}
+\CommentTok{#                delay = 1/6)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4468,8 +4470,55 @@ código?}
 
 \end{frame}
 
-\begin{frame}{}
-\protect\hypertarget{section}{}
+\begin{frame}{Filtro geométrico}
+\protect\hypertarget{filtro-geomuxe9trico}{}
+
+\small
+
+\includegraphics[width=4.5in]{IMAGENS/Frida}
+
+\begin{center}
+\tiny{}
+\end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Filtro geométrico}
+\protect\hypertarget{filtro-geomuxe9trico-1}{}
+
+\small
+
+Por meio do pacote ``imager'' é possível estilizar uma imagem e deixá-la
+pixelizada:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(imager)}
+\NormalTok{foto <-}\StringTok{ }\KeywordTok{load.image}\NormalTok{(}\StringTok{"C:/Users/nick_/Downloads/foto.jpg"}\NormalTok{)}
+
+\NormalTok{foto2<-}\StringTok{ }\NormalTok{foto }\OperatorTok{%>%}\StringTok{  }\KeywordTok{resize}\NormalTok{(}\DataTypeTok{size_x =} \DecValTok{80}\NormalTok{, }\DataTypeTok{size_y =} \DecValTok{80}\NormalTok{, }\DataTypeTok{interpolation_type =}\NormalTok{ 1L)}
+\KeywordTok{suppressMessages}\NormalTok{(}\KeywordTok{suppressWarnings}\NormalTok{(}\KeywordTok{library}\NormalTok{(imager)))}
+\NormalTok{foto2 <-}\StringTok{ }\KeywordTok{rowMeans}\NormalTok{(foto2, }\DataTypeTok{dims =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Filtro geométrico}
+\protect\hypertarget{filtro-geomuxe9trico-2}{}
+
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{foto2 }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{apply}\NormalTok{(}\DecValTok{1}\NormalTok{, rev) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{t}\NormalTok{() }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{image}\NormalTok{(}\DataTypeTok{col =} \KeywordTok{grey.colors}\NormalTok{(}\DecValTok{256}\NormalTok{), }\DataTypeTok{axes =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{SLIDES_files/figure-beamer/10.1-1.pdf}
 
 \end{frame}
 
