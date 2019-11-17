@@ -32,6 +32,11 @@ knitr::opts_chunk$set(echo = FALSE)
 # A importância de análise de imagens
 \small
 
+
+# Como os pacotes lêem as imagens?
+\small
+
+
 # Pacotes
 \small
 Oos principais pacotes para manipulação de imagem são:
@@ -253,54 +258,6 @@ image_write(frink_anot, path = "frink_anot.png", format = "png")
 \tiny{}
 \end{center}
 
-# Gifs
-
-```{r 7.1, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
-earth <- image_read("https://jeroen.github.io/images/earth.gif") %>%
-  image_scale("250x") %>% 
-  image_quantize() 
-
-length(earth) 
-```
-
-# Como montar um GIF
-
-1º - Importe as imagens:
-
-$\Rightarrow$ im_1 <- image_read("C:/Users/nick_/Downloads/im_1.jpg")
-
-$\Rightarrow$ im_n <- image_read("C:/Users/nick_/Downloads/im_n.jpg")
-
-2º - Junte as imagens e redimensione:
-
-$\Rightarrow$ img <- c(im_1, ... , im_n)
-
-$\Rightarrow$ img <- image_scale(img, "300x300")
-
-3º - Argumentos:
-
-$\Rightarrow$ image_animate(img)
-
-# Salvar o GIF na máquina
-
-```{r 7.2, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
-#im_1 <- image_read("c:/Users/nick_/Downloads/im_1.jpg")
-#img <- c(im_1, ... , im_n)
-#img <- image_scale(img, "300x300")
-#img <- image_animate(img)
-```
-
-```{r 7.3, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
-
-library(gifski)
-
-#image_write_gif(img, path = "grafico.gif")
-# É possivel adicionar um delay
-#image_write_gif(img, path = "grafico_delay.gif",
-#                delay = 1/6)
-
-```
-
 # Como retirar pontos de um gráfico sem seu código?
 
 \includegraphics[width=4.4in]{IMAGENS/grafico_ponto}
@@ -367,7 +324,6 @@ dat <- image_data(im_proc3)[1,,] %>%
            Row = as.numeric(Row),
            value = ifelse(value == "00", NA, 1)) %>%
     filter(!is.na(value))
-dat
 ```
  
 # Como retirar pontos de um gráfico sem seu código?
@@ -411,6 +367,169 @@ image_write(tempo, path = "tempo.pdf", format = "pdf")
 \tiny{}
 \end{center}
 
+# Gifs
+
+```{r 7.1, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+earth <- image_read("https://jeroen.github.io/images/earth.gif") %>%
+  image_scale("250x") %>% 
+  image_quantize() 
+
+length(earth) 
+```
+
+# Como montar um GIF
+
+1º - Importe as imagens:
+
+$\Rightarrow$ im_1 <- image_read("C:/Users/nick_/Downloads/im_1.jpg")
+
+$\Rightarrow$ im_n <- image_read("C:/Users/nick_/Downloads/im_n.jpg")
+
+2º - Junte as imagens e redimensione:
+
+$\Rightarrow$ img <- c(im_1, ... , im_n)
+
+$\Rightarrow$ img <- image_scale(img, "300x300")
+
+3º - Argumentos:
+
+$\Rightarrow$ image_animate(img)
+
+# Salvar o GIF na máquina
+
+```{r 7.2, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+im_1 <- image_read("c:/Users/nick_/Downloads/im_1.jpg")
+im_n <- image_read("c:/Users/nick_/Downloads/im_n.jpg")
+img <- c(im_1, ... , im_n)
+img <- image_scale(img, "300x300")
+img <- image_animate(img)
+```
+
+```{r 7.3, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+library(gifski)
+
+image_write_gif(img, path = "grafico.gif")
+ # É possivel adicionar um delay
+image_write_gif(img, path = "grafico_delay.gif",
+                delay = 1/6)
+
+```
+
+# ANA
+\small
+```{r 12, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+# Download da imagem
+file="http://ereaderbackgrounds.com/movies/bw/Frankenstein.jpg"
+download.file(file, destfile = "frankenstein.jpg", mode = 'wb')
+# Lê e converte para a escala de cinza
+load.image("C:/Users/nick_/Downloads/Frankenstein.jpg") %>% 
+  grayscale() -> x
+```
+
+# ANA
+\small
+```{r 12.1, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+# Isso é apenas para definir os limites dos frames
+x %>% 
+  as.data.frame() %>% 
+  group_by() %>% 
+  summarize(xmin=min(x), xmax=max(x), ymin=min(y), ymax=max(y)) %>% 
+  as.vector()->rw
+```
+
+# ANA
+\small
+```{r 12.2, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+# Filtra a imagem e converte para preto e branco
+x %>%
+  threshold("45%") %>% 
+  as.cimg() %>% 
+  as.data.frame() -> df
+```
+
+# ANA
+\small
+```{r 12.3, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+# Função para calcular e plotar o diagrama de Voronoi, depende
+# do tamanho da amostra
+doPlot = function(n)
+{
+  #V Diagrama de Voronoi
+  df %>% 
+    sample_n(n, weight=(1-value)) %>% 
+    select(x,y) %>% 
+    deldir(rw=rw, sort=TRUE) %>% 
+    .$dirsgs -> data
+```
+
+# ANA
+\small
+```{r 12.4, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+ # Isso é apenas para adicionar alguns alfas nas linhas, depende
+# da longitude
+  data %>% 
+    mutate(long=sqrt((x1-x2)^2+(y1-y2)^2),
+           alpha=findInterval(long,
+                              quantile(long,
+                                       probs = seq(0,
+                                                   1,
+                                                   length.out = 20)
+                                       )
+                              )/21)-> data
+```
+
+# ANA
+\small
+```{r 12.5, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+data %>% 
+    ggplot(aes(alpha=(1-alpha))) +
+    geom_segment(aes(x = x1, y = y1, xend = x2, yend = y2),
+                 color="black", lwd=1) +
+    scale_x_continuous(expand=c(0,0))+
+    scale_y_continuous(expand=c(0,0), trans=reverse_trans())+
+    theme(legend.position  = "none",
+          panel.background = element_rect(fill="white"),
+          axis.ticks       = element_blank(),
+          panel.grid       = element_blank(),
+          axis.title       = element_blank(),
+          axis.text        = element_blank())->plot
+  return(plot)}
+```
+
+# ANA
+\small
+
+```{r 12.6, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+# Eu chamei a função anterior e salvei o resultado do plot em
+# formato jpeg
+i= 500
+name=paste0("frankie",i,".jpeg")
+jpeg(name, width = 600, height = 800, units = "px",
+     quality = 100)
+doPlot(i)
+dev.off()
+```
+
+# ANA
+\small
+
+```{r 12.7, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+# Assim que todas as imagens são salvas, eu posso criar o GIF
+library(magick)
+frames=c()
+images=list.files(pattern="jpeg")
+for (i in length(images):1)
+{
+  x=image_read(images[i])
+  x=image_scale(x, "300")
+  c(x, frames) -> frames
+}
+animation=image_animate(frames, fps = 2)
+image_write(animation, "Frankenstein.gif")
+print(animation)
+```
+
 # Filtro geométrico
 \small
 
@@ -428,7 +547,8 @@ Por meio do pacote "imager" é possível estilizar uma imagem e deixá-la pixeli
 library(imager)
 foto <- load.image("C:/Users/nick_/Downloads/foto.jpg")
 
-foto2<- foto %>%  resize(size_x = 80, size_y = 80, interpolation_type = 1L)
+foto2<- foto %>%  resize(size_x = 80, size_y = 80,
+                         interpolation_type = 1L)
 suppressMessages(suppressWarnings(library(imager)))
 foto2 <- rowMeans(foto2, dims = 2)
 ```
@@ -441,4 +561,145 @@ foto2 %>%
   apply(1, rev) %>% 
   t() %>% 
   image(col = grey.colors(256), axes = FALSE)
+```
+
+# Keras
+
+\includegraphics[width=4.5in]{IMAGENS/Keras_logo}
+\begin{center}
+\tiny{}
+\end{center}
+
+# TensorFlow
+
+\includegraphics[width=4.5in]{IMAGENS/TensorFlow_logo}
+\begin{center}
+\tiny{}
+\end{center}
+
+# Anaconda
+
+\includegraphics[width=4.2in]{IMAGENS/Anaconda}
+\begin{center}
+\tiny{}
+\end{center}
+
+# Reconhecimento de imagem - Aviões e carros
+
+\includegraphics[width=4.0in]{IMAGENS/Avioes_carros}
+\begin{center}
+\tiny{}
+\end{center}
+
+# Reconhecimento de imagem - Pacotes
+
+```{r 11, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+install.packages("tfestimators")
+install_tensorflow()
+devtools::install_github("rstudio/keras")
+devtools::install_github("rstudio/tensorflow")
+devtools::install_github("rstudio/keras")
+reticulate::py_discover_config()
+reticulate::use_condaenv("r-tensorflow")
+reticulate::py_config()
+```
+
+# Reconhecimento de imagem - Leitura
+
+```{r 11.1, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(EBImage)
+library(keras)
+library(kerasR)
+library(kerasformula)
+setwd('C:\\Users\\Matheus\\Desktop\\Nova pasta\\diretorio R')
+pics <- c('p1.jpg', 'p2.jpg', 'p3.jpg', 'p4.jpg', 'p5.jpg',
+          'p6.jpg','c1.jpg', 'c2.jpg', 'c3.jpg', 'c4.jpg', 
+          'c5.jpg','c6.jpg')
+mypic <- list()
+for (i in 1:12) {mypic[[i]] <- readImage(pics[i])}
+```
+
+# Reconhecimento de imagem - Análise manual
+
+```{r 11.2, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+print(mypic[[1]])
+display(mypic[[12]])
+summary(mypic[[1]])
+hist(mypic[[2]])
+```
+
+# Reconhecimento de imagem - Redimensionamento
+
+```{r 11.3, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+for (i in 1:12) {mypic[[i]] <- resize(mypic[[i]],28, 28)}
+for (i in 1:12) {mypic[[i]] <- array_reshape(mypic[[i]],
+                                             c(28,28,3))}
+```
+
+# Reconhecimneto de imagem - Remodelagem
+
+```{r 11.4, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+trainx <- NULL
+for (i in 1:5) {trainx <- rbind(trainx, mypic[[i]])}
+for (i in 7:11) {trainx <- rbind(trainx, mypic[[i]])}
+str(trainx)
+testx <- rbind(mypic[[6]], mypic[[12]])
+trainy <- c(0,0,0,0,0,1,1,1,1,1)
+testy <- c(0, 1)
+```
+
+# Reconhecimneto de imagem - Criação de labels
+
+```{r 11.5, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+trainLabels <- to_categorical(trainy)
+testLabels <- to_categorical(testy)
+```
+
+# Reconhecimento de imagem - Modelo
+
+```{r 11.6, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+model <- keras_model_sequential()
+model %>%
+         layer_dense(units = 256, activation = 'relu',
+                     input_shape = c(2352)) %>%
+         layer_dense(units = 128, activation = 'relu') %>%
+         layer_dense(units = 2, activation = 'softmax')
+summary(model)
+```
+
+# Reconhecimento de imagem - Compilação
+
+```{r 11.7, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+model %>%
+         compile(loss = 'binary_crossentropy',
+                 optimizer = optimizer_rmsprop(),
+                 metrics = 'accuracy')
+```
+
+# Reconhecimento de imagem - Ajustando/ Treinando o modelo
+
+```{r 11.8, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+history <- model %>%
+         fit(trainx,
+             trainLabels,
+             epochs = 500,
+             batch_size = 32,
+             validation_split = 0.2)
+```
+
+# Reconhecimento de imagem - Ajustando/ Treinando o modelo
+
+\includegraphics[width=3.2in]{IMAGENS/modelo_grafico}
+\begin{center}
+\tiny{}
+\end{center}
+
+# Reconhecimento de imagem - Avaliação e previsão
+
+```{r 11.9, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+model %>% evaluate(testx, testLabels)
+pred <- model %>% predict_classes(trainx)
+table(Predicted = pred, Actual = trainy)
+prob <- model %>% predict_proba(trainx)
+cbind(prob, Prected = pred, Actual= trainy)
 ```
