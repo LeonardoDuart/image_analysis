@@ -71,14 +71,6 @@ knitr::opts_chunk$set(echo = FALSE)
 \tiny{}
 \end{center}
 
-# Como os pacotes lêem as imagens?
-\small
-
-\includegraphics[width=4.3in]{IMAGENS/R_le}
-\begin{center}
-\tiny{}
-\end{center}
-
 # Pacotes
 \small
 Oos principais pacotes para manipulação de imagem são:
@@ -93,6 +85,14 @@ require("imager")
 require("magick") 
 
 ```
+
+# Como os pacotes lêem as imagens?
+\small
+
+\includegraphics[width=4.3in]{IMAGENS/R_le}
+\begin{center}
+\tiny{}
+\end{center}
 
 # Importação e vizualização de imagens:
 \small
@@ -151,7 +151,7 @@ image_info(queremos_redimensionado2)
 ```{r 3, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 tigre_convertido <- image_convert(queremos, "jpeg")
-image_info(tigre_convertido) # Retorna o formato da imagem
+image_info(tigre_convertido)
 
 image_write(queremos, path = "queremos.png", format = "png")
 
@@ -436,24 +436,39 @@ $\Rightarrow$ img <- image_scale(img, "300x300")
 
 $\Rightarrow$ image_animate(img)
 
-# Salvar o GIF na máquina
-
-```{r 7.2, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
-im_1 <- image_read("c:/Users/nick_/Downloads/im_1.jpg")
-im_n <- image_read("c:/Users/nick_/Downloads/im_n.jpg")
-img <- c(im_1, ... , im_n)
-img <- image_scale(img, "300x300")
-img <- image_animate(img)
-```
+# Exemplo de GIF (Mês por frame com anotações)
 
 ```{r 7.3, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+# Importando os gráficos do computador
+im_1 <- image_read("IMAGENS/GIF/a1.png")
+...
+im_11 <- image_read("IMAGENS/GIF/a11.png")
+# Adicionando uma frase com o mês correspondente
+im_1 <- image_annotate(im_1, "Janeiro", size = 27,
+                             color = "darkblue",
+                             location = "+630+360")
+...
+im_11 <- image_annotate(im_11, "Novembro", size = 27,
+                             color = "darkblue",
+                             location = "+630+360")
+```
+
+# Exemplo de GIF (Mês por frame com anotações)
+
+```{r 7.3.2, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+img <- c(im_1,im_2,im_3,im_4,im_5,im_6,im_7,im_8,im_9,im_10,im_11)
+img <- image_scale(img, "600x600")
+img <- image_animate(img, fps = 1)
+```
+
+```{r 7.4, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 library(gifski)
 
-image_write_gif(img, path = "grafico.gif")
+image_write_gif(img, path = "IMAGENS/GIF/GIF.gif")
  # É possivel adicionar um delay
-image_write_gif(img, path = "grafico_delay.gif",
-                delay = 1/6)
+image_write_gif(img, path = "IMAGENS/GIF/GIF_delay.gif",
+                delay = 1/2)
 
 ```
 

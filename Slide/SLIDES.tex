@@ -335,19 +335,6 @@
 
 \end{frame}
 
-\begin{frame}{Como os pacotes lêem as imagens?}
-\protect\hypertarget{como-os-pacotes-luxeaem-as-imagens}{}
-
-\small
-
-\includegraphics[width=4.6in]{IMAGENS/R_le}
-
-\begin{center}
-\tiny{}
-\end{center}
-
-\end{frame}
-
 \begin{frame}[fragile]{Pacotes}
 \protect\hypertarget{pacotes}{}
 
@@ -365,6 +352,19 @@ Oos principais pacotes para manipulação de imagem são:
 \KeywordTok{require}\NormalTok{(}\StringTok{"magick"}\NormalTok{) }
 \end{Highlighting}
 \end{Shaded}
+
+\end{frame}
+
+\begin{frame}{Como os pacotes lêem as imagens?}
+\protect\hypertarget{como-os-pacotes-luxeaem-as-imagens}{}
+
+\small
+
+\includegraphics[width=4.3in]{IMAGENS/R_le}
+
+\begin{center}
+\tiny{}
+\end{center}
 
 \end{frame}
 
@@ -478,7 +478,7 @@ Oos principais pacotes para manipulação de imagem são:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{tigre_convertido <-}\StringTok{ }\KeywordTok{image_convert}\NormalTok{(queremos, }\StringTok{"jpeg"}\NormalTok{)}
-\KeywordTok{image_info}\NormalTok{(tigre_convertido) }\CommentTok{# Retorna o formato da imagem}
+\KeywordTok{image_info}\NormalTok{(tigre_convertido)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -937,17 +937,47 @@ image\_read(``C:/Users/nick\_/Downloads/im\_n.jpg'')
 
 \end{frame}
 
-\begin{frame}[fragile]{Salvar o GIF na máquina}
-\protect\hypertarget{salvar-o-gif-na-muxe1quina}{}
+\begin{frame}[fragile]{Exemplo de GIF (Mês por frame com anotações)}
+\protect\hypertarget{exemplo-de-gif-muxeas-por-frame-com-anotauxe7uxf5es}{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Importando os gráficos do computador}
+\NormalTok{im_}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\KeywordTok{image_read}\NormalTok{(}\StringTok{"IMAGENS/GIF/a1.png"}\NormalTok{)}
+\NormalTok{...}
+\NormalTok{im_}\DecValTok{11}\NormalTok{ <-}\StringTok{ }\KeywordTok{image_read}\NormalTok{(}\StringTok{"IMAGENS/GIF/a11.png"}\NormalTok{)}
+\CommentTok{# Adicionando uma frase com o mês correspondente}
+\NormalTok{im_}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\KeywordTok{image_annotate}\NormalTok{(im_}\DecValTok{1}\NormalTok{, }\StringTok{"Janeiro"}\NormalTok{, }\DataTypeTok{size =} \DecValTok{27}\NormalTok{,}
+                             \DataTypeTok{color =} \StringTok{"darkblue"}\NormalTok{,}
+                             \DataTypeTok{location =} \StringTok{"+630+360"}\NormalTok{)}
+\NormalTok{...}
+\NormalTok{im_}\DecValTok{11}\NormalTok{ <-}\StringTok{ }\KeywordTok{image_annotate}\NormalTok{(im_}\DecValTok{11}\NormalTok{, }\StringTok{"Novembro"}\NormalTok{, }\DataTypeTok{size =} \DecValTok{27}\NormalTok{,}
+                             \DataTypeTok{color =} \StringTok{"darkblue"}\NormalTok{,}
+                             \DataTypeTok{location =} \StringTok{"+630+360"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo de GIF (Mês por frame com anotações)}
+\protect\hypertarget{exemplo-de-gif-muxeas-por-frame-com-anotauxe7uxf5es-1}{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{img <-}\StringTok{ }\KeywordTok{c}\NormalTok{(im_}\DecValTok{1}\NormalTok{,im_}\DecValTok{2}\NormalTok{,im_}\DecValTok{3}\NormalTok{,im_}\DecValTok{4}\NormalTok{,im_}\DecValTok{5}\NormalTok{,im_}\DecValTok{6}\NormalTok{,im_}\DecValTok{7}\NormalTok{,im_}\DecValTok{8}\NormalTok{,im_}\DecValTok{9}\NormalTok{,im_}\DecValTok{10}\NormalTok{,im_}\DecValTok{11}\NormalTok{)}
+\NormalTok{img <-}\StringTok{ }\KeywordTok{image_scale}\NormalTok{(img, }\StringTok{"600x600"}\NormalTok{)}
+\NormalTok{img <-}\StringTok{ }\KeywordTok{image_animate}\NormalTok{(img, }\DataTypeTok{fps =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(gifski)}
 
-\KeywordTok{image_write_gif}\NormalTok{(img, }\DataTypeTok{path =} \StringTok{"grafico.gif"}\NormalTok{)}
+\KeywordTok{image_write_gif}\NormalTok{(img, }\DataTypeTok{path =} \StringTok{"IMAGENS/GIF/GIF.gif"}\NormalTok{)}
  \CommentTok{# É possivel adicionar um delay}
-\KeywordTok{image_write_gif}\NormalTok{(img, }\DataTypeTok{path =} \StringTok{"grafico_delay.gif"}\NormalTok{,}
-                \DataTypeTok{delay =} \DecValTok{1}\OperatorTok{/}\DecValTok{6}\NormalTok{)}
+\KeywordTok{image_write_gif}\NormalTok{(img, }\DataTypeTok{path =} \StringTok{"IMAGENS/GIF/GIF_delay.gif"}\NormalTok{,}
+                \DataTypeTok{delay =} \DecValTok{1}\OperatorTok{/}\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
