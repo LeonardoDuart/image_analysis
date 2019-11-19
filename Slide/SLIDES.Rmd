@@ -1,6 +1,6 @@
 ---
 title: "Análise de imagem no Rstudio"
-author: "Ana, João, Laura, Leonardo e Paulo"
+author: "Ana Tércia, João, Laura Reis, Leonardo e Paulo"
 date: "20 de novembro de 2019"
 output: 
   beamer_presentation:
@@ -14,6 +14,24 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+# Tipos de imagens (Bitmap)
+\small
+
+\includegraphics[width=4.4in]{IMAGENS/BITMAP}
+\begin{center}
+\tiny{}
+\end{center}
+
+
+# Tipos de imagens (Vetorial)
+\small
+
+\includegraphics[width=4.4in]{IMAGENS/VETORIAL}
+\begin{center}
+\tiny{}
+\end{center}
+
 
 # Formatos de imagens
 \small
@@ -32,10 +50,34 @@ knitr::opts_chunk$set(echo = FALSE)
 # A importância de análise de imagens
 \small
 
+\includegraphics[width=4.4in]{IMAGENS/raiox}
+\begin{center}
+\tiny{}
+\end{center}
+
+# A importância de análise de imagens
+\small
+
+\includegraphics[width=4.4in]{IMAGENS/satelite}
+\begin{center}
+\tiny{}
+\end{center}
+
+# A importância de análise de imagens
+\small
+
+\includegraphics[width=4.4in]{IMAGENS/facial}
+\begin{center}
+\tiny{}
+\end{center}
 
 # Como os pacotes lêem as imagens?
 \small
 
+\includegraphics[width=4.3in]{IMAGENS/R_le}
+\begin{center}
+\tiny{}
+\end{center}
 
 # Pacotes
 \small
@@ -44,9 +86,9 @@ Oos principais pacotes para manipulação de imagem são:
 ```{r 1, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 require("BiocManager") 
-require("EBImage") # JPEG(JPG), PNG E TIFF
+require("EBImage") 
 
-require("imager") # JPEG(JPG), PNG E BMP
+require("imager") 
 
 require("magick") 
 
@@ -75,9 +117,10 @@ require("magick")
 \small
 
 ```{r 2, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
-
-tigre <- image_read_svg('http://jeroen.github.io/images/tiger.svg')
-tigre
+library(rsvg)
+queremos <- image_read_svg(
+  'https://s3.amazonaws.com/wd-static/static_v1/pt/logo.svg')
+queremos
 
 ```
 
@@ -86,12 +129,20 @@ tigre
 
 ```{r 2.1, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
-tigre2 <- image_read_svg('http://jeroen.github.io/images/tiger.svg',
-                         width = 120) # 120 = width, 120x = height
-tigre2
+queremos2 <- image_read_svg(
+  'https://s3.amazonaws.com/wd-static/static_v1/pt/logo.svg',
+  width = 210) # 220 = width,
+               # 220x = height
+queremos2
+```
 
-tigre_redimensionada <- image_scale(tigre, "120x120")
-
+# Mudar dimensões
+\small
+```{r 2.2, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+queremos_redimensionado1 <- image_scale(queremos, "210x42")
+image_info(queremos_redimensionado1)
+queremos_redimensionado2 <- image_scale(queremos, "210x40")
+image_info(queremos_redimensionado2)
 ```
 
 # Converter ou salvar em formatos desejados
@@ -99,40 +150,53 @@ tigre_redimensionada <- image_scale(tigre, "120x120")
 
 ```{r 3, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
-tigre_convertido <- image_convert(tigre, "jpeg")
+tigre_convertido <- image_convert(queremos, "jpeg")
 image_info(tigre_convertido) # Retorna o formato da imagem
 
-image_write(tigre, path = "tiger.png", format = "png")
+image_write(queremos, path = "queremos.png", format = "png")
 
 ```
 
-# Imagens para manipulação (Frink)
+# Imagens para manipulação 
+\small
 
 ```{r 5, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
-frink <- image_read("C:/Users/nick_/OneDrive/Área de Trabalho/image_analysis/Slide/IMAGENS/frink.png")
-frink
+patrik <- image_read("IMAGENS/patrik.png")
 ```
 
-# Imagens para manipulação (BigData)
+\includegraphics[width=3.2in]{IMAGENS/patrik}
+\begin{center}
+\tiny{}
+\end{center}
+
+# Imagens para manipulação 
+\small
 
 ```{r 5.1.1, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
-bigdata <- image_read('C:/Users/nick_/OneDrive/Área de Trabalho/image_analysis/Slide/IMAGENS/bigdata.jpg')
-bigdata
+bigdata <- image_read('IMAGENS/bigdata.jpg')
 ```
+\includegraphics[width=3.7in]{IMAGENS/bigdata}
+\begin{center}
+\tiny{}
+\end{center}
 
-# Imagens para manipulação (R)
+# Imagens para manipulação 
+\small
 
 ```{r 5.1.2, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
-logo <- image_read('C:/Users/nick_/OneDrive/Área de Trabalho/image_analysis/Slide/IMAGENS/Rlogo.png')
-logo
+logo <- image_read('IMAGENS/Rlogo.png')
 ```
+\includegraphics[width=3.4in]{IMAGENS/Rlogo}
+\begin{center}
+\tiny{}
+\end{center}
 
 # Girar e modificar
 \small
 
-\includegraphics[width=3.7in]{IMAGENS/girar_modificar}
+\includegraphics[width=4.6in]{IMAGENS/girar_modificar}
 \begin{center}
-\tiny{Fonte: https://cran.r-project.org/web/packages/magick/vignettes/intro.html}
+\tiny{}
 \end{center}
 
 # Alguns tipos de filtros
@@ -140,93 +204,66 @@ logo
 
 \includegraphics[width=4.4in]{IMAGENS/filtros}
 \begin{center}
-\tiny{Fonte: https://cran.r-project.org/web/packages/magick/vignettes/intro.html}
+\tiny{}
 \end{center}
 
 # Imagens sobrepostas
 \small
 
 ```{r 5.2, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
-img <- c(bigdata, logo, frink)
+img <- c(bigdata, logo, patrik)
 img <- image_scale(img, "300x300")
 image_info(img)
 ```
 # Imagens sobrepostas
-
 \small
 
-\includegraphics[width=4.4in]{IMAGENS/juntar_sobrepor}
+\includegraphics[width=4.6in]{IMAGENS/juntar_sobrepor}
 \begin{center}
-\tiny{Fonte: https://cran.r-project.org/web/packages/magick/vignettes/intro.html}
+\tiny{}
 \end{center}
 
 # Imagens sobrepostas
 
 ```{r 5.3, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
-bigdatafrink <- image_scale(image_rotate(
-  image_background(frink, "none"), 300), "x160")
+bigdatapatrik <- image_scale(image_rotate(
+  image_background(patrik, "none"), 300), "x260")
 juntos <-image_composite(image_scale(
-  bigdata, "x330"), bigdatafrink, offset = "+180+100")
+  bigdata, "x330"), bigdatapatrik, offset = "+150+70")
+image_write(juntos, path = "juntos.png", format = "png")
 
 ```
 
 # Imagens sobrepostas
+\small
 
-```{r 5.4, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-juntos
-```
+\includegraphics[width=4.4in]{juntos}
+\begin{center}
+\tiny{}
+\end{center}
 
 # Utilidade em gráficos
 \small
 
-```{r 5.5, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
-
-require(readr)
-Estat.subida <- read_csv("C:/Users/nick_/OneDrive/Área de Trabalho/Mount_Rainier_Shiny/Lista04/climbing_statistics.csv")
-Clima <- read_csv("C:/Users/nick_/OneDrive/Área de Trabalho/Mount_Rainier_Shiny/Lista04/Rainier_Weather.csv")
-library(dplyr)
-BD <- inner_join(Estat.subida, Clima, by = "Date")
-BD <- filter(BD, Attempted >= Succeeded)
-BD$`Success Percentage` <- round(BD$`Success Percentage`*100)
-require(ggplot2)
-require(ggforce)
-PSxTEMP <- ggplot(BD, aes(`Temperature AVG`, `Success Percentage`), size = `Wind Speed Daily AVG`)+
-  theme_minimal() +
-  theme(axis.title.x = element_text(size = 16),
-        axis.text.x = element_text(size = 14),
-        axis.text.y = element_text(size = 14),
-        axis.title.y = element_text(size = 16),
-        legend.text = element_text(size = 13),
-        legend.title = element_text(size=14)) +
-  labs(x = "Temperatura(Fº)",
-       y = "Porcentagem de Sucesso",
-       color = "Umidade média",
-       size = "Velocidade média do vento")+
-  geom_jitter( aes(color = `Relative Humidity AVG`, size = `Wind Speed Daily AVG`)) +
-  geom_ellipse(aes(x0 = 11.5, y0 = 0, a = 5.4, b = 3, angle = 0), linetype = "dashed",
-               colour = "darkred",size = 0.5) +
-  scale_colour_gradient(low = "light blue", high = "dark blue")
-
-```
-
-
-```{r 5.6, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-PSxTEMP
-```
+\includegraphics[width=4.4in]{PSxTEMP}
+\begin{center}
+\tiny{}
+\end{center}
 
 # Utilidade para sobreposição de imagens
 
 ```{r 6, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
-graph <- image_read("C:/Users/nick_/OneDrive/Área de Trabalho/image_analysis/Slide/IMAGENS/Rplot1.png")
-temp <- image_read("C:/Users/nick_/OneDrive/Área de Trabalho/image_analysis/Slide/IMAGENS/low_temp.png")
+graph <- image_read("IMAGENS/Rplot1.png")
+temp <- image_read("IMAGENS/low_temp.png")
 temp_graph <- image_scale(image_rotate(image_background(
   temp, "none"), 340), "x50")
 temp_graph
 juntos_2 <-image_composite(image_scale(
   graph, "x600"), temp_graph, offset = "+150+440")
-image_write(juntos_2, path = "juntos2.pdf", format = "pdf")
+image_write(juntos_2, path = "juntos2.pdf",
+            format = "pdf")
 
 ```
 
@@ -240,20 +277,21 @@ image_write(juntos_2, path = "juntos2.pdf", format = "pdf")
 # Anotações em imagens
 
 ```{r 7, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
-frink_anot <- image_annotate(frink, "Aqui", size = 25,
+patrik_anot <- image_annotate(patrik, "Aqui", size = 21,
                              color = "red",
                              boxcolor = "black",
-                             degrees = 30, 
-                             location = "+150+310")
+                             degrees = 10, 
+                             location = "+120+50")
 
-frink_anot <- image_scale(frink_anot, "x350")
+patrik_anot <- image_scale(patrik_anot, "x350")
 
-image_write(frink_anot, path = "frink_anot.png", format = "png")
+image_write(patrik_anot, path = "patrik_anot.png",
+            format = "png")
 ```
 
 # Anotações em imagens
 
-\includegraphics[width=4.0in]{frink_anot}
+\includegraphics[width=3.6in]{patrik_anot}
 \begin{center}
 \tiny{}
 \end{center}
@@ -269,10 +307,11 @@ image_write(frink_anot, path = "frink_anot.png", format = "png")
 
 ```{r 8, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 library(tidyverse)
-im <- image_read("C:/Users/nick_/OneDrive/Área de Trabalho/image_analysis/Slide/IMAGENS/grafico_ponto.jpg")
+im <- image_read("IMAGENS/grafico_ponto.jpg")
 im_proc <- im %>%
     image_channel("saturation")
-image_write(im_proc, path = "IMAGENS/grafico_ponto1.png", format = "png")
+image_write(im_proc, path = "IMAGENS/grafico_ponto1.png",
+            format = "png")
 ```
 
 # Como retirar pontos de um gráfico sem seu código?
@@ -354,7 +393,7 @@ grafico_final <-ggplot(data = dat,
 ```{r 9, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 require(pdftools)
-tempo <- image_read_pdf("C:/Users/nick_/OneDrive/Área de Trabalho/image_analysis/Slide/IMAGENS/temp.pdf")
+tempo <- image_read_pdf("IMAGENS/temp.pdf")
 image_write(tempo, path = "tempo.pdf", format = "pdf")
 
 ```
@@ -370,7 +409,9 @@ image_write(tempo, path = "tempo.pdf", format = "pdf")
 # Gifs
 
 ```{r 7.1, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
-earth <- image_read("https://jeroen.github.io/images/earth.gif") %>%
+earth <- image_read(
+  "https://jeroen.github.io/images/earth.gif"
+  ) %>%
   image_scale("250x") %>% 
   image_quantize() 
 
@@ -416,29 +457,30 @@ image_write_gif(img, path = "grafico_delay.gif",
 
 ```
 
-# ANA
+# GIF e filtro Voronoi
 \small
 ```{r 12, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 # Download da imagem
-file="http://ereaderbackgrounds.com/movies/bw/Frankenstein.jpg"
-download.file(file, destfile = "frankenstein.jpg", mode = 'wb')
+file="http://ereaderbackgrounds.com/movies/bw/Imagem.jpg"
+download.file(file, destfile = "imagem.jpg", mode = 'wb')
 # Lê e converte para a escala de cinza
-load.image("C:/Users/nick_/Downloads/Frankenstein.jpg") %>% 
+load.image("C:/Users/nick_/Downloads/Imagem.jpg") %>% 
   grayscale() -> x
 ```
 
-# ANA
+# GIF e filtro Voronoi
 \small
 ```{r 12.1, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 # Isso é apenas para definir os limites dos frames
 x %>% 
   as.data.frame() %>% 
   group_by() %>% 
-  summarize(xmin=min(x), xmax=max(x), ymin=min(y), ymax=max(y)) %>% 
+  summarize(xmin=min(x), xmax=max(x),
+            ymin=min(y), ymax=max(y)) %>% 
   as.vector()->rw
 ```
 
-# ANA
+# GIF e filtro Voronoi
 \small
 ```{r 12.2, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 # Filtra a imagem e converte para preto e branco
@@ -448,14 +490,14 @@ x %>%
   as.data.frame() -> df
 ```
 
-# ANA
+# GIF e filtro Voronoi
 \small
 ```{r 12.3, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
-# Função para calcular e plotar o diagrama de Voronoi, depende
-# do tamanho da amostra
+# Função para calcular e plotar o diagrama de Voronoi,
+# depende do tamanho da amostra
 doPlot = function(n)
 {
-  #V Diagrama de Voronoi
+  # Diagrama de Voronoi
   df %>% 
     sample_n(n, weight=(1-value)) %>% 
     select(x,y) %>% 
@@ -463,23 +505,24 @@ doPlot = function(n)
     .$dirsgs -> data
 ```
 
-# ANA
+# GIF e filtro Voronoi
 \small
 ```{r 12.4, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
- # Isso é apenas para adicionar alguns alfas nas linhas, depende
-# da longitude
+ # Isso é apenas para adicionar alguns alfas nas linhas,
+ # depende da longitude
   data %>% 
     mutate(long=sqrt((x1-x2)^2+(y1-y2)^2),
-           alpha=findInterval(long,
-                              quantile(long,
-                                       probs = seq(0,
-                                                   1,
-                                                   length.out = 20)
+           alpha=findInterval(
+             long,
+             quantile(long,
+                      robs = seq(0,
+                                 1,
+                                 length.out = 20)
                                        )
                               )/21)-> data
 ```
 
-# ANA
+# GIF e filtro Voronoi
 \small
 ```{r 12.5, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 data %>% 
@@ -497,21 +540,21 @@ data %>%
   return(plot)}
 ```
 
-# ANA
+# GIF e filtro Voronoi
 \small
 
 ```{r 12.6, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 # Eu chamei a função anterior e salvei o resultado do plot em
 # formato jpeg
 i= 500
-name=paste0("frankie",i,".jpeg")
+name=paste0("imagem",i,".jpeg")
 jpeg(name, width = 600, height = 800, units = "px",
      quality = 100)
 doPlot(i)
 dev.off()
 ```
 
-# ANA
+# GIF e filtro Voronoi
 \small
 
 ```{r 12.7, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
@@ -526,7 +569,7 @@ for (i in length(images):1)
   c(x, frames) -> frames
 }
 animation=image_animate(frames, fps = 2)
-image_write(animation, "Frankenstein.gif")
+image_write(animation, "Imagem.gif")
 print(animation)
 ```
 
@@ -611,7 +654,7 @@ library(EBImage)
 library(keras)
 library(kerasR)
 library(kerasformula)
-setwd('C:\\Users\\Matheus\\Desktop\\Nova pasta\\diretorio R')
+setwd('C:\\Users\\diretorio R')
 pics <- c('p1.jpg', 'p2.jpg', 'p3.jpg', 'p4.jpg', 'p5.jpg',
           'p6.jpg','c1.jpg', 'c2.jpg', 'c3.jpg', 'c4.jpg', 
           'c5.jpg','c6.jpg')

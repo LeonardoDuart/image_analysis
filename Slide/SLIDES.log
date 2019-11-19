@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7250 64-bit) (preloaded format=xelatex 2019.11.16)  17 NOV 2019 16:06
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7250 64-bit) (preloaded format=xelatex 2019.11.16)  18 NOV 2019 23:14
 entering extended mode
 **./SLIDES.tex
 (SLIDES.tex
@@ -1819,11 +1819,75 @@ Overfull \vbox (44.04802pt too high) detected at line 253
 
 [1
 
-] [2
+]
+File: IMAGENS/BITMAP.jpg Graphic file (type bmp)
+<IMAGENS/BITMAP.jpg>
 
-] [3
+Overfull \hbox (10.71497pt too wide) in paragraph at lines 266--266
+[][]  
+ []
+
+
+Overfull \vbox (13.75098pt too high) detected at line 266
+ []
+
+[2
+
+]
+File: IMAGENS/VETORIAL.jpg Graphic file (type bmp)
+<IMAGENS/VETORIAL.jpg>
+
+Overfull \hbox (10.71225pt too wide) in paragraph at lines 279--279
+[][]  
+ []
+
+[3
 
 ] [4
+
+]
+File: IMAGENS/raiox.jpg Graphic file (type bmp)
+<IMAGENS/raiox.jpg>
+
+Overfull \hbox (10.6923pt too wide) in paragraph at lines 310--310
+[][]  
+ []
+
+
+Overfull \vbox (39.05202pt too high) detected at line 310
+ []
+
+[5
+
+]
+File: IMAGENS/satelite.jpg Graphic file (type bmp)
+<IMAGENS/satelite.jpg>
+
+Overfull \hbox (10.70667pt too wide) in paragraph at lines 323--323
+[][]  
+ []
+
+[6
+
+]
+File: IMAGENS/facial.jpg Graphic file (type bmp)
+<IMAGENS/facial.jpg>
+
+Overfull \hbox (10.6897pt too wide) in paragraph at lines 336--336
+[][]  
+ []
+
+[7
+
+]
+File: IMAGENS/R_le.png Graphic file (type bmp)
+<IMAGENS/R_le.png>
+
+Overfull \hbox (25.16966pt too wide) in paragraph at lines 349--349
+[][]  
+ []
+
+[8
 
 ]
 \openout4 = `SLIDES.vrb'.
@@ -1831,49 +1895,10 @@ Overfull \vbox (44.04802pt too high) detected at line 253
 (SLIDES.vrb
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 10.
-) [5
+) [9
 
 ]
-Overfull \vbox (9.55855pt too high) detected at line 339
- []
-
-[6
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb
-File: SLIDES_files/figure-beamer/2-1.png Graphic file (type bmp)
-<SLIDES_files/figure-beamer/2-1.png>
-)
-Overfull \vbox (78.68465pt too high) detected at line 355
- []
-
-[7
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb
-File: SLIDES_files/figure-beamer/2.1-1.png Graphic file (type bmp)
-<SLIDES_files/figure-beamer/2.1-1.png>
-) [8
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [9
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 6.
-File: SLIDES_files/figure-beamer/5-1.png Graphic file (type bmp)
-<SLIDES_files/figure-beamer/5-1.png>
-)
-Overfull \vbox (83.09552pt too high) detected at line 417
+Overfull \vbox (9.55855pt too high) detected at line 403
  []
 
 [10
@@ -1882,66 +1907,48 @@ Overfull \vbox (83.09552pt too high) detected at line 417
 \openout4 = `SLIDES.vrb'.
 
 (SLIDES.vrb
-File: SLIDES_files/figure-beamer/5.1.1-1.png Graphic file (type bmp)
-<SLIDES_files/figure-beamer/5.1.1-1.png>
-
-Overfull \hbox (26.81026pt too wide) in paragraph at lines 11--12
-[][]  
- []
-
-)
-Overfull \vbox (85.59673pt too high) detected at line 431
- []
-
-[11
+File: SLIDES_files/figure-beamer/2-1.png Graphic file (type bmp)
+<SLIDES_files/figure-beamer/2-1.png>
+) [11
 
 ]
 \openout4 = `SLIDES.vrb'.
 
 (SLIDES.vrb
-File: SLIDES_files/figure-beamer/5.1.2-1.png Graphic file (type bmp)
-<SLIDES_files/figure-beamer/5.1.2-1.png>
-
-Overfull \hbox (15.74034pt too wide) in paragraph at lines 11--12
-[][]  
- []
-
-)
-Overfull \vbox (85.6071pt too high) detected at line 445
- []
-
-[12
-
-]
-File: IMAGENS/girar_modificar.png Graphic file (type bmp)
-<IMAGENS/girar_modificar.png>
-
-Overfull \vbox (20.99274pt too high) detected at line 458
- []
-
-[13
-
-]
-File: IMAGENS/filtros.png Graphic file (type bmp)
-<IMAGENS/filtros.png>
-
-Overfull \hbox (10.70709pt too wide) in paragraph at lines 471--471
-[][]  
- []
-
-[14
+File: SLIDES_files/figure-beamer/2.1-1.png Graphic file (type bmp)
+<SLIDES_files/figure-beamer/2.1-1.png>
+) [12
 
 ]
 \openout4 = `SLIDES.vrb'.
 
-(SLIDES.vrb) [15
+(SLIDES.vrb) [13
 
 ]
-File: IMAGENS/juntar_sobrepor.png Graphic file (type bmp)
-<IMAGENS/juntar_sobrepor.png>
+\openout4 = `SLIDES.vrb'.
 
-Overfull \hbox (10.70924pt too wide) in paragraph at lines 506--506
-[][]  
+(SLIDES.vrb) [14
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb
+File: IMAGENS/patrik.png Graphic file (type bmp)
+<IMAGENS/patrik.png>
+)
+Overfull \vbox (79.01505pt too high) detected at line 515
+ []
+
+[15
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb
+File: IMAGENS/bigdata.jpg Graphic file (type bmp)
+<IMAGENS/bigdata.jpg>
+)
+Overfull \vbox (13.2818pt too high) detected at line 534
  []
 
 [16
@@ -1949,44 +1956,53 @@ Overfull \hbox (10.70924pt too wide) in paragraph at lines 506--506
 ]
 \openout4 = `SLIDES.vrb'.
 
-(SLIDES.vrb) [17
+(SLIDES.vrb
+File: IMAGENS/Rlogo.png Graphic file (type bmp)
+<IMAGENS/Rlogo.png>
+)
+Overfull \vbox (19.0585pt too high) detected at line 553
+ []
+
+[17
 
 ]
-File: SLIDES_files/figure-beamer/5.4-1.png Graphic file (type bmp)
-<SLIDES_files/figure-beamer/5.4-1.png>
+File: IMAGENS/girar_modificar.png Graphic file (type bmp)
+<IMAGENS/girar_modificar.png>
 
-Overfull \hbox (26.46722pt too wide) in paragraph at lines 527--527
+Overfull \hbox (25.15858pt too wide) in paragraph at lines 566--566
 [][]  
  []
 
 
-Overfull \vbox (33.46577pt too high) detected at line 527
+Overfull \vbox (17.24522pt too high) detected at line 566
  []
 
 [18
 
 ]
-File: SLIDES_files/figure-beamer/5.6-1.pdf Graphic file (type pdf)
-<use SLIDES_files/figure-beamer/5.6-1.pdf>
+File: IMAGENS/filtros.png Graphic file (type bmp)
+<IMAGENS/filtros.png>
+
+Overfull \hbox (10.69823pt too wide) in paragraph at lines 579--579
+[][]  
+ []
+
+
+Overfull \vbox (9.61574pt too high) detected at line 579
+ []
+
 [19
 
 ]
 \openout4 = `SLIDES.vrb'.
 
-(SLIDES.vrb
-File: SLIDES_files/figure-beamer/6-1.png Graphic file (type bmp)
-<SLIDES_files/figure-beamer/6-1.png>
-)
-Overfull \vbox (17.46909pt too high) detected at line 561
- []
-
-[20
+(SLIDES.vrb) [20
 
 ]
-File: juntos2.pdf Graphic file (type pdf)
-<use juntos2.pdf>
+File: IMAGENS/juntar_sobrepor.png Graphic file (type bmp)
+<IMAGENS/juntar_sobrepor.png>
 
-Overfull \hbox (10.70145pt too wide) in paragraph at lines 572--572
+Overfull \hbox (25.15332pt too wide) in paragraph at lines 614--614
 [][]  
  []
 
@@ -1995,27 +2011,31 @@ Overfull \hbox (10.70145pt too wide) in paragraph at lines 572--572
 ]
 \openout4 = `SLIDES.vrb'.
 
-(SLIDES.vrb) [22
+(SLIDES.vrb
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 6.
+) [22
 
 ]
-File: frink_anot.png Graphic file (type bmp)
-<frink_anot.png>
+File: juntos.png Graphic file (type bmp)
+<juntos.png>
 
-Overfull \vbox (51.78658pt too high) detected at line 602
+Overfull \hbox (10.72366pt too wide) in paragraph at lines 642--642
+[][]  
+ []
+
+
+Overfull \vbox (20.96494pt too high) detected at line 642
  []
 
 [23
 
 ]
-File: IMAGENS/grafico_ponto.jpg Graphic file (type bmp)
-<IMAGENS/grafico_ponto.jpg>
+File: PSxTEMP.pdf Graphic file (type pdf)
+<use PSxTEMP.pdf>
 
-Overfull \hbox (10.71335pt too wide) in paragraph at lines 613--613
+Overfull \hbox (10.702pt too wide) in paragraph at lines 655--655
 [][]  
- []
-
-
-Overfull \vbox (11.40057pt too high) detected at line 613
  []
 
 [24
@@ -2023,21 +2043,71 @@ Overfull \vbox (11.40057pt too high) detected at line 613
 ]
 \openout4 = `SLIDES.vrb'.
 
-(SLIDES.vrb) [25
+(SLIDES.vrb
+File: SLIDES_files/figure-beamer/6-1.png Graphic file (type bmp)
+<SLIDES_files/figure-beamer/6-1.png>
+)
+Overfull \vbox (36.56604pt too high) detected at line 681
+ []
+
+[25
+
+]
+File: juntos2.pdf Graphic file (type pdf)
+<use juntos2.pdf>
+
+Overfull \hbox (10.70145pt too wide) in paragraph at lines 692--692
+[][]  
+ []
+
+[26
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [27
+
+]
+File: patrik_anot.png Graphic file (type bmp)
+<patrik_anot.png>
+
+Overfull \vbox (51.78658pt too high) detected at line 723
+ []
+
+[28
+
+]
+File: IMAGENS/grafico_ponto.jpg Graphic file (type bmp)
+<IMAGENS/grafico_ponto.jpg>
+
+Overfull \hbox (10.71335pt too wide) in paragraph at lines 734--734
+[][]  
+ []
+
+
+Overfull \vbox (11.40057pt too high) detected at line 734
+ []
+
+[29
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [30
 
 ]
 File: IMAGENS/grafico_ponto1.png Graphic file (type bmp)
 <IMAGENS/grafico_ponto1.png>
 
-Overfull \hbox (10.71335pt too wide) in paragraph at lines 640--640
+Overfull \hbox (10.71335pt too wide) in paragraph at lines 762--762
 [][]  
  []
 
 
-Overfull \vbox (11.40057pt too high) detected at line 640
+Overfull \vbox (11.40057pt too high) detected at line 762
  []
 
-[26
+[31
 
 ]
 \openout4 = `SLIDES.vrb'.
@@ -2046,10 +2116,10 @@ Overfull \vbox (11.40057pt too high) detected at line 640
 File: IMAGENS/grafico_ponto2.png Graphic file (type bmp)
 <IMAGENS/grafico_ponto2.png>
 )
-Overfull \vbox (54.40575pt too high) detected at line 663
+Overfull \vbox (54.40575pt too high) detected at line 785
  []
 
-[27
+[32
 
 ]
 \openout4 = `SLIDES.vrb'.
@@ -2058,38 +2128,9 @@ Overfull \vbox (54.40575pt too high) detected at line 663
 File: IMAGENS/grafico_ponto3.png Graphic file (type bmp)
 <IMAGENS/grafico_ponto3.png>
 )
-Overfull \vbox (54.40575pt too high) detected at line 686
+Overfull \vbox (54.40575pt too high) detected at line 808
  []
 
-[28
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [29
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [30
-
-]
-File: IMAGENS/grafico_final.pdf Graphic file (type pdf)
-<use IMAGENS/grafico_final.pdf>
-
-Overfull \vbox (51.78946pt too high) detected at line 746
- []
-
-[31
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [32
-
-]
-File: tempo.pdf Graphic file (type pdf)
-<use tempo.pdf>
 [33
 
 ]
@@ -2098,28 +2139,57 @@ File: tempo.pdf Graphic file (type pdf)
 (SLIDES.vrb) [34
 
 ]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [35
+
+]
+File: IMAGENS/grafico_final.pdf Graphic file (type pdf)
+<use IMAGENS/grafico_final.pdf>
+
+Overfull \vbox (51.78946pt too high) detected at line 868
+ []
+
+[36
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [37
+
+]
+File: tempo.pdf Graphic file (type pdf)
+<use tempo.pdf>
+[38
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [39
+
+]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.665pt on input line 814.
+(Font)              scaled to size 7.665pt on input line 938.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.475pt on input line 814.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 8
-14.
+(Font)              scaled to size 5.475pt on input line 938.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 9
+38.
 ("C:\Users\nick_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.95116pt on input line 814.
+(Font)              scaled to size 10.95116pt on input line 938.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.6658pt on input line 814.
+(Font)              scaled to size 7.6658pt on input line 938.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.47559pt on input line 814.
+(Font)              scaled to size 5.47559pt on input line 938.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.94882pt on input line 814.
+(Font)              scaled to size 10.94882pt on input line 938.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.66417pt on input line 814.
+(Font)              scaled to size 7.66417pt on input line 938.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.47441pt on input line 814.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 814
+(Font)              scaled to size 5.47441pt on input line 938.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 938
 .
 ("C:\Users\nick_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -2128,7 +2198,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 fg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 814
+LaTeX Font Info:    Trying to load font information for U+msb on input line 938
 .
 ("C:\Users\nick_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -2137,35 +2207,10 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 fg"
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-Overfull \vbox (2.63605pt too high) detected at line 814
+Overfull \vbox (2.63605pt too high) detected at line 938
  []
 
-[35
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [36
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [37
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [38
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [39
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [40
+[40
 
 ]
 \openout4 = `SLIDES.vrb'.
@@ -2175,11 +2220,7 @@ Overfull \vbox (2.63605pt too high) detected at line 814
 ]
 \openout4 = `SLIDES.vrb'.
 
-(SLIDES.vrb)
-Overfull \vbox (17.27878pt too high) detected at line 953
- []
-
-[42
+(SLIDES.vrb) [42
 
 ]
 \openout4 = `SLIDES.vrb'.
@@ -2189,20 +2230,12 @@ Overfull \vbox (17.27878pt too high) detected at line 953
 ]
 \openout4 = `SLIDES.vrb'.
 
-(SLIDES.vrb)
-Overfull \vbox (16.52878pt too high) detected at line 998
- []
-
-[44
+(SLIDES.vrb) [44
 
 ]
-File: IMAGENS/Frida.jpg Graphic file (type bmp)
-<IMAGENS/Frida.jpg>
+\openout4 = `SLIDES.vrb'.
 
-Overfull \vbox (51.76547pt too high) detected at line 1011
- []
-
-[45
+(SLIDES.vrb) [45
 
 ]
 \openout4 = `SLIDES.vrb'.
@@ -2212,69 +2245,81 @@ Overfull \vbox (51.76547pt too high) detected at line 1011
 ]
 \openout4 = `SLIDES.vrb'.
 
-(SLIDES.vrb
-File: SLIDES_files/figure-beamer/10.1-1.pdf Graphic file (type pdf)
-<use SLIDES_files/figure-beamer/10.1-1.pdf>
-)
-Overfull \vbox (79.04297pt too high) detected at line 1051
+(SLIDES.vrb)
+Overfull \vbox (17.27878pt too high) detected at line 1079
  []
 
 [47
 
 ]
-File: IMAGENS/Keras_logo.png Graphic file (type bmp)
-<IMAGENS/Keras_logo.png>
+\openout4 = `SLIDES.vrb'.
 
-Overfull \hbox (17.92308pt too wide) in paragraph at lines 1062--1062
-[][]  
- []
-
-[48
+(SLIDES.vrb) [48
 
 ]
-File: IMAGENS/TensorFlow_logo.png Graphic file (type bmp)
-<IMAGENS/TensorFlow_logo.png>
+\openout4 = `SLIDES.vrb'.
 
-Overfull \hbox (17.93782pt too wide) in paragraph at lines 1073--1073
-[][]  
+(SLIDES.vrb)
+Overfull \vbox (16.52878pt too high) detected at line 1124
  []
 
 [49
 
 ]
+File: IMAGENS/Frida.jpg Graphic file (type bmp)
+<IMAGENS/Frida.jpg>
+
+Overfull \vbox (51.76547pt too high) detected at line 1137
+ []
+
+[50
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [51
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb
+File: SLIDES_files/figure-beamer/10.1-1.pdf Graphic file (type pdf)
+<use SLIDES_files/figure-beamer/10.1-1.pdf>
+)
+Overfull \vbox (79.04297pt too high) detected at line 1177
+ []
+
+[52
+
+]
+File: IMAGENS/Keras_logo.png Graphic file (type bmp)
+<IMAGENS/Keras_logo.png>
+
+Overfull \hbox (17.92308pt too wide) in paragraph at lines 1188--1188
+[][]  
+ []
+
+[53
+
+]
+File: IMAGENS/TensorFlow_logo.png Graphic file (type bmp)
+<IMAGENS/TensorFlow_logo.png>
+
+Overfull \hbox (17.93782pt too wide) in paragraph at lines 1199--1199
+[][]  
+ []
+
+[54
+
+]
 File: IMAGENS/Anaconda.png Graphic file (type bmp)
 <IMAGENS/Anaconda.png>
-[50
+[55
 
 ]
 File: IMAGENS/Avioes_carros.jpg Graphic file (type bmp)
 <IMAGENS/Avioes_carros.jpg>
-[51
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [52
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [53
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [54
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [55
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [56
+[56
 
 ]
 \openout4 = `SLIDES.vrb'.
@@ -2297,18 +2342,43 @@ File: IMAGENS/Avioes_carros.jpg Graphic file (type bmp)
 (SLIDES.vrb) [60
 
 ]
-File: IMAGENS/modelo_grafico.png Graphic file (type bmp)
-<IMAGENS/modelo_grafico.png>
+\openout4 = `SLIDES.vrb'.
 
-Overfull \vbox (24.9634pt too high) detected at line 1248
- []
-
-[61
+(SLIDES.vrb) [61
 
 ]
 \openout4 = `SLIDES.vrb'.
 
 (SLIDES.vrb) [62
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [63
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [64
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [65
+
+]
+File: IMAGENS/modelo_grafico.png Graphic file (type bmp)
+<IMAGENS/modelo_grafico.png>
+
+Overfull \vbox (24.9634pt too high) detected at line 1374
+ []
+
+[66
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [67
 
 ]
 \tf@nav=\write6
@@ -2320,22 +2390,22 @@ Overfull \vbox (24.9634pt too high) detected at line 1248
 \tf@snm=\write8
 \openout8 = `SLIDES.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1265.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1265.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1391.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1391.
 (SLIDES.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1265.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1265.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1391.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1391.
  ) 
 Here is how much of TeX's memory you used:
- 43144 strings out of 427240
- 840541 string characters out of 3141440
- 1061173 words of memory out of 3000000
- 46884 multiletter control sequences out of 15000+200000
+ 43239 strings out of 427240
+ 841328 string characters out of 3141440
+ 1061862 words of memory out of 3000000
+ 46977 multiletter control sequences out of 15000+200000
  535872 words of font info for 63 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  71i,13n,115p,1809b,710s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on SLIDES.pdf (62 pages).
+Output written on SLIDES.pdf (67 pages).
 
 ! log4cxx: setFile(C:\Users\nick_\AppData\Local\MiKTeX\2.9\miktex\log/xelatex.log,true) call failed.
 ! log4cxx: IO Exception : status code = 720005

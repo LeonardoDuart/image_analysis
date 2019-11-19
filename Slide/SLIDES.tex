@@ -77,7 +77,7 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Análise de imagem no Rstudio},
-  pdfauthor={Ana, João, Laura, Leonardo e Paulo},
+  pdfauthor={Ana Tércia, João, Laura Reis, Leonardo e Paulo},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -246,11 +246,37 @@
 \newcommand\mycom[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
 
 \title{Análise de imagem no Rstudio}
-\author{Ana, João, Laura, Leonardo e Paulo}
+\author{Ana Tércia, João, Laura Reis, Leonardo e Paulo}
 \date{20 de novembro de 2019}
 
 \begin{document}
 \frame{\titlepage}
+
+\begin{frame}{Tipos de imagens (Bitmap)}
+\protect\hypertarget{tipos-de-imagens-bitmap}{}
+
+\small
+
+\includegraphics[width=4.4in]{IMAGENS/BITMAP}
+
+\begin{center}
+\tiny{}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Tipos de imagens (Vetorial)}
+\protect\hypertarget{tipos-de-imagens-vetorial}{}
+
+\small
+
+\includegraphics[width=4.4in]{IMAGENS/VETORIAL}
+
+\begin{center}
+\tiny{}
+\end{center}
+
+\end{frame}
 
 \begin{frame}{Formatos de imagens}
 \protect\hypertarget{formatos-de-imagens}{}
@@ -275,12 +301,50 @@
 
 \small
 
+\includegraphics[width=4.4in]{IMAGENS/raiox}
+
+\begin{center}
+\tiny{}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{A importância de análise de imagens}
+\protect\hypertarget{a-importuxe2ncia-de-anuxe1lise-de-imagens-1}{}
+
+\small
+
+\includegraphics[width=4.4in]{IMAGENS/satelite}
+
+\begin{center}
+\tiny{}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{A importância de análise de imagens}
+\protect\hypertarget{a-importuxe2ncia-de-anuxe1lise-de-imagens-2}{}
+
+\small
+
+\includegraphics[width=4.4in]{IMAGENS/facial}
+
+\begin{center}
+\tiny{}
+\end{center}
+
 \end{frame}
 
 \begin{frame}{Como os pacotes lêem as imagens?}
 \protect\hypertarget{como-os-pacotes-luxeaem-as-imagens}{}
 
 \small
+
+\includegraphics[width=4.6in]{IMAGENS/R_le}
+
+\begin{center}
+\tiny{}
+\end{center}
 
 \end{frame}
 
@@ -294,9 +358,9 @@ Oos principais pacotes para manipulação de imagem são:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{require}\NormalTok{(}\StringTok{"BiocManager"}\NormalTok{) }
-\KeywordTok{require}\NormalTok{(}\StringTok{"EBImage"}\NormalTok{) }\CommentTok{# JPEG(JPG), PNG E TIFF}
+\KeywordTok{require}\NormalTok{(}\StringTok{"EBImage"}\NormalTok{) }
 
-\KeywordTok{require}\NormalTok{(}\StringTok{"imager"}\NormalTok{) }\CommentTok{# JPEG(JPG), PNG E BMP}
+\KeywordTok{require}\NormalTok{(}\StringTok{"imager"}\NormalTok{) }
 
 \KeywordTok{require}\NormalTok{(}\StringTok{"magick"}\NormalTok{) }
 \end{Highlighting}
@@ -345,12 +409,14 @@ Oos principais pacotes para manipulação de imagem são:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{tigre <-}\StringTok{ }\KeywordTok{image_read_svg}\NormalTok{(}\StringTok{'http://jeroen.github.io/images/tiger.svg'}\NormalTok{)}
-\NormalTok{tigre}
+\KeywordTok{library}\NormalTok{(rsvg)}
+\NormalTok{queremos <-}\StringTok{ }\KeywordTok{image_read_svg}\NormalTok{(}
+  \StringTok{'https://s3.amazonaws.com/wd-static/static_v1/pt/logo.svg'}\NormalTok{)}
+\NormalTok{queremos}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=12.5in]{SLIDES_files/figure-beamer/2-1}
+\includegraphics[width=3.89in]{SLIDES_files/figure-beamer/2-1}
 
 \end{frame}
 
@@ -361,19 +427,46 @@ Oos principais pacotes para manipulação de imagem são:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{tigre2 <-}\StringTok{ }\KeywordTok{image_read_svg}\NormalTok{(}\StringTok{'http://jeroen.github.io/images/tiger.svg'}\NormalTok{,}
-                         \DataTypeTok{width =} \DecValTok{120}\NormalTok{) }\CommentTok{# 120 = width, 120x = height}
-\NormalTok{tigre2}
+\NormalTok{queremos2 <-}\StringTok{ }\KeywordTok{image_read_svg}\NormalTok{(}
+  \StringTok{'https://s3.amazonaws.com/wd-static/static_v1/pt/logo.svg'}\NormalTok{,}
+  \DataTypeTok{width =} \DecValTok{210}\NormalTok{) }\CommentTok{# 220 = width,}
+               \CommentTok{# 220x = height}
+\NormalTok{queremos2}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1.67in]{SLIDES_files/figure-beamer/2.1-1}
+\includegraphics[width=2.92in]{SLIDES_files/figure-beamer/2.1-1}
+
+\end{frame}
+
+\begin{frame}[fragile]{Mudar dimensões}
+\protect\hypertarget{mudar-dimensuxf5es-2}{}
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{tigre_redimensionada <-}\StringTok{ }\KeywordTok{image_scale}\NormalTok{(tigre, }\StringTok{"120x120"}\NormalTok{)}
+\NormalTok{queremos_redimensionado1 <-}\StringTok{ }\KeywordTok{image_scale}\NormalTok{(queremos, }\StringTok{"210x42"}\NormalTok{)}
+\KeywordTok{image_info}\NormalTok{(queremos_redimensionado1)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+##   format width height colorspace matte filesize density
+## 1    PNG   210     41       sRGB  TRUE        0   72x72
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{queremos_redimensionado2 <-}\StringTok{ }\KeywordTok{image_scale}\NormalTok{(queremos, }\StringTok{"210x40"}\NormalTok{)}
+\KeywordTok{image_info}\NormalTok{(queremos_redimensionado2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   format width height colorspace matte filesize density
+## 1    PNG   207     40       sRGB  TRUE        0   72x72
+\end{verbatim}
 
 \end{frame}
 
@@ -384,63 +477,78 @@ Oos principais pacotes para manipulação de imagem são:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{tigre_convertido <-}\StringTok{ }\KeywordTok{image_convert}\NormalTok{(tigre, }\StringTok{"jpeg"}\NormalTok{)}
+\NormalTok{tigre_convertido <-}\StringTok{ }\KeywordTok{image_convert}\NormalTok{(queremos, }\StringTok{"jpeg"}\NormalTok{)}
 \KeywordTok{image_info}\NormalTok{(tigre_convertido) }\CommentTok{# Retorna o formato da imagem}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ##   format width height colorspace matte filesize density
-## 1   JPEG   900    900       sRGB  TRUE        0   72x72
+## 1   JPEG   280     54       sRGB  TRUE        0   72x72
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{image_write}\NormalTok{(tigre, }\DataTypeTok{path =} \StringTok{"tiger.png"}\NormalTok{, }\DataTypeTok{format =} \StringTok{"png"}\NormalTok{)}
+\KeywordTok{image_write}\NormalTok{(queremos, }\DataTypeTok{path =} \StringTok{"queremos.png"}\NormalTok{, }\DataTypeTok{format =} \StringTok{"png"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \end{frame}
 
-\begin{frame}[fragile]{Imagens para manipulação (Frink)}
-\protect\hypertarget{imagens-para-manipulauxe7uxe3o-frink}{}
+\begin{frame}[fragile]{Imagens para manipulação}
+\protect\hypertarget{imagens-para-manipulauxe7uxe3o}{}
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{frink <-}\StringTok{ }\KeywordTok{image_read}\NormalTok{(}\StringTok{"C:/Users/nick_/OneDrive/Área de Trabalho/image_analysis/Slide/IMAGENS/frink.png"}\NormalTok{)}
-\NormalTok{frink}
+\NormalTok{patrik <-}\StringTok{ }\KeywordTok{image_read}\NormalTok{(}\StringTok{"IMAGENS/patrik.png"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=3.06in]{SLIDES_files/figure-beamer/5-1}
+\includegraphics[width=3.2in]{IMAGENS/patrik}
+
+\begin{center}
+\tiny{}
+\end{center}
 
 \end{frame}
 
-\begin{frame}[fragile]{Imagens para manipulação (BigData)}
-\protect\hypertarget{imagens-para-manipulauxe7uxe3o-bigdata}{}
+\begin{frame}[fragile]{Imagens para manipulação}
+\protect\hypertarget{imagens-para-manipulauxe7uxe3o-1}{}
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{bigdata <-}\StringTok{ }\KeywordTok{image_read}\NormalTok{(}\StringTok{'C:/Users/nick_/OneDrive/Área de Trabalho/image_analysis/Slide/IMAGENS/bigdata.jpg'}\NormalTok{)}
-\NormalTok{bigdata}
+\NormalTok{bigdata <-}\StringTok{ }\KeywordTok{image_read}\NormalTok{(}\StringTok{'IMAGENS/bigdata.jpg'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=14.22in]{SLIDES_files/figure-beamer/5.1.1-1}
+\includegraphics[width=3.7in]{IMAGENS/bigdata}
+
+\begin{center}
+\tiny{}
+\end{center}
 
 \end{frame}
 
-\begin{frame}[fragile]{Imagens para manipulação (R)}
-\protect\hypertarget{imagens-para-manipulauxe7uxe3o-r}{}
+\begin{frame}[fragile]{Imagens para manipulação}
+\protect\hypertarget{imagens-para-manipulauxe7uxe3o-2}{}
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{logo <-}\StringTok{ }\KeywordTok{image_read}\NormalTok{(}\StringTok{'C:/Users/nick_/OneDrive/Área de Trabalho/image_analysis/Slide/IMAGENS/Rlogo.png'}\NormalTok{)}
-\NormalTok{logo}
+\NormalTok{logo <-}\StringTok{ }\KeywordTok{image_read}\NormalTok{(}\StringTok{'IMAGENS/Rlogo.png'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=10.06in]{SLIDES_files/figure-beamer/5.1.2-1}
+\includegraphics[width=3.4in]{IMAGENS/Rlogo}
+
+\begin{center}
+\tiny{}
+\end{center}
 
 \end{frame}
 
@@ -449,10 +557,10 @@ Oos principais pacotes para manipulação de imagem são:
 
 \small
 
-\includegraphics[width=3.7in]{IMAGENS/girar_modificar}
+\includegraphics[width=4.6in]{IMAGENS/girar_modificar}
 
 \begin{center}
-\tiny{Fonte: https://cran.r-project.org/web/packages/magick/vignettes/intro.html}
+\tiny{}
 \end{center}
 
 \end{frame}
@@ -465,7 +573,7 @@ Oos principais pacotes para manipulação de imagem são:
 \includegraphics[width=4.4in]{IMAGENS/filtros}
 
 \begin{center}
-\tiny{Fonte: https://cran.r-project.org/web/packages/magick/vignettes/intro.html}
+\tiny{}
 \end{center}
 
 \end{frame}
@@ -477,7 +585,7 @@ Oos principais pacotes para manipulação de imagem são:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{img <-}\StringTok{ }\KeywordTok{c}\NormalTok{(bigdata, logo, frink)}
+\NormalTok{img <-}\StringTok{ }\KeywordTok{c}\NormalTok{(bigdata, logo, patrik)}
 \NormalTok{img <-}\StringTok{ }\KeywordTok{image_scale}\NormalTok{(img, }\StringTok{"300x300"}\NormalTok{)}
 \KeywordTok{image_info}\NormalTok{(img)}
 \end{Highlighting}
@@ -485,9 +593,9 @@ Oos principais pacotes para manipulação de imagem são:
 
 \begin{verbatim}
 ##   format width height colorspace matte filesize density
-## 1   JPEG   300    225       sRGB FALSE        0   72x72
+## 1   JPEG   300    207       sRGB FALSE        0   96x96
 ## 2    PNG   300    232       sRGB  TRUE        0   72x72
-## 3    PNG   148    300       sRGB  TRUE        0   72x72
+## 3    PNG   203    300       sRGB  TRUE        0   72x72
 \end{verbatim}
 
 \end{frame}
@@ -497,10 +605,10 @@ Oos principais pacotes para manipulação de imagem são:
 
 \small
 
-\includegraphics[width=4.4in]{IMAGENS/juntar_sobrepor}
+\includegraphics[width=4.6in]{IMAGENS/juntar_sobrepor}
 
 \begin{center}
-\tiny{Fonte: https://cran.r-project.org/web/packages/magick/vignettes/intro.html}
+\tiny{}
 \end{center}
 
 \end{frame}
@@ -510,10 +618,11 @@ Oos principais pacotes para manipulação de imagem são:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{bigdatafrink <-}\StringTok{ }\KeywordTok{image_scale}\NormalTok{(}\KeywordTok{image_rotate}\NormalTok{(}
-  \KeywordTok{image_background}\NormalTok{(frink, }\StringTok{"none"}\NormalTok{), }\DecValTok{300}\NormalTok{), }\StringTok{"x160"}\NormalTok{)}
+\NormalTok{bigdatapatrik <-}\StringTok{ }\KeywordTok{image_scale}\NormalTok{(}\KeywordTok{image_rotate}\NormalTok{(}
+  \KeywordTok{image_background}\NormalTok{(patrik, }\StringTok{"none"}\NormalTok{), }\DecValTok{300}\NormalTok{), }\StringTok{"x260"}\NormalTok{)}
 \NormalTok{juntos <-}\KeywordTok{image_composite}\NormalTok{(}\KeywordTok{image_scale}\NormalTok{(}
-\NormalTok{  bigdata, }\StringTok{"x330"}\NormalTok{), bigdatafrink, }\DataTypeTok{offset =} \StringTok{"+180+100"}\NormalTok{)}
+\NormalTok{  bigdata, }\StringTok{"x330"}\NormalTok{), bigdatapatrik, }\DataTypeTok{offset =} \StringTok{"+150+70"}\NormalTok{)}
+\KeywordTok{image_write}\NormalTok{(juntos, }\DataTypeTok{path =} \StringTok{"juntos.png"}\NormalTok{, }\DataTypeTok{format =} \StringTok{"png"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -522,7 +631,13 @@ Oos principais pacotes para manipulação de imagem são:
 \begin{frame}{Imagens sobrepostas}
 \protect\hypertarget{imagens-sobrepostas-3}{}
 
-\includegraphics[width=6.11in]{SLIDES_files/figure-beamer/5.4-1}
+\small
+
+\includegraphics[width=4.4in]{juntos}
+
+\begin{center}
+\tiny{}
+\end{center}
 
 \end{frame}
 
@@ -531,7 +646,11 @@ Oos principais pacotes para manipulação de imagem são:
 
 \small
 
-\includegraphics{SLIDES_files/figure-beamer/5.6-1.pdf}
+\includegraphics[width=4.4in]{PSxTEMP}
+
+\begin{center}
+\tiny{}
+\end{center}
 
 \end{frame}
 
@@ -540,8 +659,8 @@ Oos principais pacotes para manipulação de imagem são:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{graph <-}\StringTok{ }\KeywordTok{image_read}\NormalTok{(}\StringTok{"C:/Users/nick_/OneDrive/Área de Trabalho/image_analysis/Slide/IMAGENS/Rplot1.png"}\NormalTok{)}
-\NormalTok{temp <-}\StringTok{ }\KeywordTok{image_read}\NormalTok{(}\StringTok{"C:/Users/nick_/OneDrive/Área de Trabalho/image_analysis/Slide/IMAGENS/low_temp.png"}\NormalTok{)}
+\NormalTok{graph <-}\StringTok{ }\KeywordTok{image_read}\NormalTok{(}\StringTok{"IMAGENS/Rplot1.png"}\NormalTok{)}
+\NormalTok{temp <-}\StringTok{ }\KeywordTok{image_read}\NormalTok{(}\StringTok{"IMAGENS/low_temp.png"}\NormalTok{)}
 \NormalTok{temp_graph <-}\StringTok{ }\KeywordTok{image_scale}\NormalTok{(}\KeywordTok{image_rotate}\NormalTok{(}\KeywordTok{image_background}\NormalTok{(}
 \NormalTok{  temp, }\StringTok{"none"}\NormalTok{), }\DecValTok{340}\NormalTok{), }\StringTok{"x50"}\NormalTok{)}
 \NormalTok{temp_graph}
@@ -554,7 +673,8 @@ Oos principais pacotes para manipulação de imagem são:
 \begin{Highlighting}[]
 \NormalTok{juntos_}\DecValTok{2}\NormalTok{ <-}\KeywordTok{image_composite}\NormalTok{(}\KeywordTok{image_scale}\NormalTok{(}
 \NormalTok{  graph, }\StringTok{"x600"}\NormalTok{), temp_graph, }\DataTypeTok{offset =} \StringTok{"+150+440"}\NormalTok{)}
-\KeywordTok{image_write}\NormalTok{(juntos_}\DecValTok{2}\NormalTok{, }\DataTypeTok{path =} \StringTok{"juntos2.pdf"}\NormalTok{, }\DataTypeTok{format =} \StringTok{"pdf"}\NormalTok{)}
+\KeywordTok{image_write}\NormalTok{(juntos_}\DecValTok{2}\NormalTok{, }\DataTypeTok{path =} \StringTok{"juntos2.pdf"}\NormalTok{,}
+            \DataTypeTok{format =} \StringTok{"pdf"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -576,15 +696,16 @@ Oos principais pacotes para manipulação de imagem são:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{frink_anot <-}\StringTok{ }\KeywordTok{image_annotate}\NormalTok{(frink, }\StringTok{"Aqui"}\NormalTok{, }\DataTypeTok{size =} \DecValTok{25}\NormalTok{,}
+\NormalTok{patrik_anot <-}\StringTok{ }\KeywordTok{image_annotate}\NormalTok{(patrik, }\StringTok{"Aqui"}\NormalTok{, }\DataTypeTok{size =} \DecValTok{21}\NormalTok{,}
                              \DataTypeTok{color =} \StringTok{"red"}\NormalTok{,}
                              \DataTypeTok{boxcolor =} \StringTok{"black"}\NormalTok{,}
-                             \DataTypeTok{degrees =} \DecValTok{30}\NormalTok{, }
-                             \DataTypeTok{location =} \StringTok{"+150+310"}\NormalTok{)}
+                             \DataTypeTok{degrees =} \DecValTok{10}\NormalTok{, }
+                             \DataTypeTok{location =} \StringTok{"+120+50"}\NormalTok{)}
 
-\NormalTok{frink_anot <-}\StringTok{ }\KeywordTok{image_scale}\NormalTok{(frink_anot, }\StringTok{"x350"}\NormalTok{)}
+\NormalTok{patrik_anot <-}\StringTok{ }\KeywordTok{image_scale}\NormalTok{(patrik_anot, }\StringTok{"x350"}\NormalTok{)}
 
-\KeywordTok{image_write}\NormalTok{(frink_anot, }\DataTypeTok{path =} \StringTok{"frink_anot.png"}\NormalTok{, }\DataTypeTok{format =} \StringTok{"png"}\NormalTok{)}
+\KeywordTok{image_write}\NormalTok{(patrik_anot, }\DataTypeTok{path =} \StringTok{"patrik_anot.png"}\NormalTok{,}
+            \DataTypeTok{format =} \StringTok{"png"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -593,7 +714,7 @@ Oos principais pacotes para manipulação de imagem são:
 \begin{frame}{Anotações em imagens}
 \protect\hypertarget{anotauxe7uxf5es-em-imagens-1}{}
 
-\includegraphics[width=4.0in]{frink_anot}
+\includegraphics[width=3.6in]{patrik_anot}
 
 \begin{center}
 \tiny{}
@@ -619,10 +740,11 @@ código?}
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(tidyverse)}
-\NormalTok{im <-}\StringTok{ }\KeywordTok{image_read}\NormalTok{(}\StringTok{"C:/Users/nick_/OneDrive/Área de Trabalho/image_analysis/Slide/IMAGENS/grafico_ponto.jpg"}\NormalTok{)}
+\NormalTok{im <-}\StringTok{ }\KeywordTok{image_read}\NormalTok{(}\StringTok{"IMAGENS/grafico_ponto.jpg"}\NormalTok{)}
 \NormalTok{im_proc <-}\StringTok{ }\NormalTok{im }\OperatorTok{%>%}
 \StringTok{    }\KeywordTok{image_channel}\NormalTok{(}\StringTok{"saturation"}\NormalTok{)}
-\KeywordTok{image_write}\NormalTok{(im_proc, }\DataTypeTok{path =} \StringTok{"IMAGENS/grafico_ponto1.png"}\NormalTok{, }\DataTypeTok{format =} \StringTok{"png"}\NormalTok{)}
+\KeywordTok{image_write}\NormalTok{(im_proc, }\DataTypeTok{path =} \StringTok{"IMAGENS/grafico_ponto1.png"}\NormalTok{,}
+            \DataTypeTok{format =} \StringTok{"png"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -751,7 +873,7 @@ código?}
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{require}\NormalTok{(pdftools)}
-\NormalTok{tempo <-}\StringTok{ }\KeywordTok{image_read_pdf}\NormalTok{(}\StringTok{"C:/Users/nick_/OneDrive/Área de Trabalho/image_analysis/Slide/IMAGENS/temp.pdf"}\NormalTok{)}
+\NormalTok{tempo <-}\StringTok{ }\KeywordTok{image_read_pdf}\NormalTok{(}\StringTok{"IMAGENS/temp.pdf"}\NormalTok{)}
 \KeywordTok{image_write}\NormalTok{(tempo, }\DataTypeTok{path =} \StringTok{"tempo.pdf"}\NormalTok{, }\DataTypeTok{format =} \StringTok{"pdf"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -776,7 +898,9 @@ código?}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{earth <-}\StringTok{ }\KeywordTok{image_read}\NormalTok{(}\StringTok{"https://jeroen.github.io/images/earth.gif"}\NormalTok{) }\OperatorTok{%>%}
+\NormalTok{earth <-}\StringTok{ }\KeywordTok{image_read}\NormalTok{(}
+  \StringTok{"https://jeroen.github.io/images/earth.gif"}
+\NormalTok{  ) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{image_scale}\NormalTok{(}\StringTok{"250x"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{image_quantize}\NormalTok{() }
 
@@ -829,26 +953,26 @@ image\_read(``C:/Users/nick\_/Downloads/im\_n.jpg'')
 
 \end{frame}
 
-\begin{frame}[fragile]{ANA}
-\protect\hypertarget{ana}{}
+\begin{frame}[fragile]{GIF e filtro Voronoi}
+\protect\hypertarget{gif-e-filtro-voronoi}{}
 
 \small
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Download da imagem}
-\NormalTok{file=}\StringTok{"http://ereaderbackgrounds.com/movies/bw/Frankenstein.jpg"}
-\KeywordTok{download.file}\NormalTok{(file, }\DataTypeTok{destfile =} \StringTok{"frankenstein.jpg"}\NormalTok{, }\DataTypeTok{mode =} \StringTok{'wb'}\NormalTok{)}
+\NormalTok{file=}\StringTok{"http://ereaderbackgrounds.com/movies/bw/Imagem.jpg"}
+\KeywordTok{download.file}\NormalTok{(file, }\DataTypeTok{destfile =} \StringTok{"imagem.jpg"}\NormalTok{, }\DataTypeTok{mode =} \StringTok{'wb'}\NormalTok{)}
 \CommentTok{# Lê e converte para a escala de cinza}
-\KeywordTok{load.image}\NormalTok{(}\StringTok{"C:/Users/nick_/Downloads/Frankenstein.jpg"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{load.image}\NormalTok{(}\StringTok{"C:/Users/nick_/Downloads/Imagem.jpg"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{grayscale}\NormalTok{() ->}\StringTok{ }\NormalTok{x}
 \end{Highlighting}
 \end{Shaded}
 
 \end{frame}
 
-\begin{frame}[fragile]{ANA}
-\protect\hypertarget{ana-1}{}
+\begin{frame}[fragile]{GIF e filtro Voronoi}
+\protect\hypertarget{gif-e-filtro-voronoi-1}{}
 
 \small
 
@@ -858,15 +982,16 @@ image\_read(``C:/Users/nick\_/Downloads/im\_n.jpg'')
 \NormalTok{x }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{as.data.frame}\NormalTok{() }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{group_by}\NormalTok{() }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{xmin=}\KeywordTok{min}\NormalTok{(x), }\DataTypeTok{xmax=}\KeywordTok{max}\NormalTok{(x), }\DataTypeTok{ymin=}\KeywordTok{min}\NormalTok{(y), }\DataTypeTok{ymax=}\KeywordTok{max}\NormalTok{(y)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{xmin=}\KeywordTok{min}\NormalTok{(x), }\DataTypeTok{xmax=}\KeywordTok{max}\NormalTok{(x),}
+            \DataTypeTok{ymin=}\KeywordTok{min}\NormalTok{(y), }\DataTypeTok{ymax=}\KeywordTok{max}\NormalTok{(y)) }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{as.vector}\NormalTok{()->rw}
 \end{Highlighting}
 \end{Shaded}
 
 \end{frame}
 
-\begin{frame}[fragile]{ANA}
-\protect\hypertarget{ana-2}{}
+\begin{frame}[fragile]{GIF e filtro Voronoi}
+\protect\hypertarget{gif-e-filtro-voronoi-2}{}
 
 \small
 
@@ -882,18 +1007,18 @@ image\_read(``C:/Users/nick\_/Downloads/im\_n.jpg'')
 
 \end{frame}
 
-\begin{frame}[fragile]{ANA}
-\protect\hypertarget{ana-3}{}
+\begin{frame}[fragile]{GIF e filtro Voronoi}
+\protect\hypertarget{gif-e-filtro-voronoi-3}{}
 
 \small
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Função para calcular e plotar o diagrama de Voronoi, depende}
-\CommentTok{# do tamanho da amostra}
+\CommentTok{# Função para calcular e plotar o diagrama de Voronoi,}
+\CommentTok{# depende do tamanho da amostra}
 \NormalTok{doPlot =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(n)}
 \NormalTok{\{}
-  \CommentTok{#V Diagrama de Voronoi}
+  \CommentTok{# Diagrama de Voronoi}
 \NormalTok{  df }\OperatorTok{%>%}\StringTok{ }
 \StringTok{    }\KeywordTok{sample_n}\NormalTok{(n, }\DataTypeTok{weight=}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{value)) }\OperatorTok{%>%}\StringTok{ }
 \StringTok{    }\KeywordTok{select}\NormalTok{(x,y) }\OperatorTok{%>%}\StringTok{ }
@@ -904,22 +1029,23 @@ image\_read(``C:/Users/nick\_/Downloads/im\_n.jpg'')
 
 \end{frame}
 
-\begin{frame}[fragile]{ANA}
-\protect\hypertarget{ana-4}{}
+\begin{frame}[fragile]{GIF e filtro Voronoi}
+\protect\hypertarget{gif-e-filtro-voronoi-4}{}
 
 \small
 
 \begin{Shaded}
 \begin{Highlighting}[]
- \CommentTok{# Isso é apenas para adicionar alguns alfas nas linhas, depende}
-\CommentTok{# da longitude}
+ \CommentTok{# Isso é apenas para adicionar alguns alfas nas linhas,}
+ \CommentTok{# depende da longitude}
 \NormalTok{  data }\OperatorTok{%>%}\StringTok{ }
 \StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{long=}\KeywordTok{sqrt}\NormalTok{((x1}\OperatorTok{-}\NormalTok{x2)}\OperatorTok{^}\DecValTok{2}\OperatorTok{+}\NormalTok{(y1}\OperatorTok{-}\NormalTok{y2)}\OperatorTok{^}\DecValTok{2}\NormalTok{),}
-           \DataTypeTok{alpha=}\KeywordTok{findInterval}\NormalTok{(long,}
-                              \KeywordTok{quantile}\NormalTok{(long,}
-                                       \DataTypeTok{probs =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}
-                                                   \DecValTok{1}\NormalTok{,}
-                                                   \DataTypeTok{length.out =} \DecValTok{20}\NormalTok{)}
+           \DataTypeTok{alpha=}\KeywordTok{findInterval}\NormalTok{(}
+\NormalTok{             long,}
+             \KeywordTok{quantile}\NormalTok{(long,}
+                      \DataTypeTok{robs =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}
+                                 \DecValTok{1}\NormalTok{,}
+                                 \DataTypeTok{length.out =} \DecValTok{20}\NormalTok{)}
 \NormalTok{                                       )}
 \NormalTok{                              )}\OperatorTok{/}\DecValTok{21}\NormalTok{)->}\StringTok{ }\NormalTok{data}
 \end{Highlighting}
@@ -927,8 +1053,8 @@ image\_read(``C:/Users/nick\_/Downloads/im\_n.jpg'')
 
 \end{frame}
 
-\begin{frame}[fragile]{ANA}
-\protect\hypertarget{ana-5}{}
+\begin{frame}[fragile]{GIF e filtro Voronoi}
+\protect\hypertarget{gif-e-filtro-voronoi-5}{}
 
 \small
 
@@ -952,8 +1078,8 @@ image\_read(``C:/Users/nick\_/Downloads/im\_n.jpg'')
 
 \end{frame}
 
-\begin{frame}[fragile]{ANA}
-\protect\hypertarget{ana-6}{}
+\begin{frame}[fragile]{GIF e filtro Voronoi}
+\protect\hypertarget{gif-e-filtro-voronoi-6}{}
 
 \small
 
@@ -962,7 +1088,7 @@ image\_read(``C:/Users/nick\_/Downloads/im\_n.jpg'')
 \CommentTok{# Eu chamei a função anterior e salvei o resultado do plot em}
 \CommentTok{# formato jpeg}
 \NormalTok{i=}\StringTok{ }\DecValTok{500}
-\NormalTok{name=}\KeywordTok{paste0}\NormalTok{(}\StringTok{"frankie"}\NormalTok{,i,}\StringTok{".jpeg"}\NormalTok{)}
+\NormalTok{name=}\KeywordTok{paste0}\NormalTok{(}\StringTok{"imagem"}\NormalTok{,i,}\StringTok{".jpeg"}\NormalTok{)}
 \KeywordTok{jpeg}\NormalTok{(name, }\DataTypeTok{width =} \DecValTok{600}\NormalTok{, }\DataTypeTok{height =} \DecValTok{800}\NormalTok{, }\DataTypeTok{units =} \StringTok{"px"}\NormalTok{,}
      \DataTypeTok{quality =} \DecValTok{100}\NormalTok{)}
 \KeywordTok{doPlot}\NormalTok{(i)}
@@ -972,8 +1098,8 @@ image\_read(``C:/Users/nick\_/Downloads/im\_n.jpg'')
 
 \end{frame}
 
-\begin{frame}[fragile]{ANA}
-\protect\hypertarget{ana-7}{}
+\begin{frame}[fragile]{GIF e filtro Voronoi}
+\protect\hypertarget{gif-e-filtro-voronoi-7}{}
 
 \small
 
@@ -990,7 +1116,7 @@ image\_read(``C:/Users/nick\_/Downloads/im\_n.jpg'')
   \KeywordTok{c}\NormalTok{(x, frames) ->}\StringTok{ }\NormalTok{frames}
 \NormalTok{\}}
 \NormalTok{animation=}\KeywordTok{image_animate}\NormalTok{(frames, }\DataTypeTok{fps =} \DecValTok{2}\NormalTok{)}
-\KeywordTok{image_write}\NormalTok{(animation, }\StringTok{"Frankenstein.gif"}\NormalTok{)}
+\KeywordTok{image_write}\NormalTok{(animation, }\StringTok{"Imagem.gif"}\NormalTok{)}
 \KeywordTok{print}\NormalTok{(animation)}
 \end{Highlighting}
 \end{Shaded}
@@ -1121,7 +1247,7 @@ pixelizada:
 \KeywordTok{library}\NormalTok{(keras)}
 \KeywordTok{library}\NormalTok{(kerasR)}
 \KeywordTok{library}\NormalTok{(kerasformula)}
-\KeywordTok{setwd}\NormalTok{(}\StringTok{'C:}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{Users}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{Matheus}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{Desktop}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{Nova pasta}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{diretorio R'}\NormalTok{)}
+\KeywordTok{setwd}\NormalTok{(}\StringTok{'C:}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{Users}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{diretorio R'}\NormalTok{)}
 \NormalTok{pics <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'p1.jpg'}\NormalTok{, }\StringTok{'p2.jpg'}\NormalTok{, }\StringTok{'p3.jpg'}\NormalTok{, }\StringTok{'p4.jpg'}\NormalTok{, }\StringTok{'p5.jpg'}\NormalTok{,}
           \StringTok{'p6.jpg'}\NormalTok{,}\StringTok{'c1.jpg'}\NormalTok{, }\StringTok{'c2.jpg'}\NormalTok{, }\StringTok{'c3.jpg'}\NormalTok{, }\StringTok{'c4.jpg'}\NormalTok{, }
           \StringTok{'c5.jpg'}\NormalTok{,}\StringTok{'c6.jpg'}\NormalTok{)}
