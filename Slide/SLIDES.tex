@@ -964,7 +964,8 @@ image\_read(``C:/Users/nick\_/Downloads/im\_n.jpg'')
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{img <-}\StringTok{ }\KeywordTok{c}\NormalTok{(im_}\DecValTok{1}\NormalTok{,im_}\DecValTok{2}\NormalTok{,im_}\DecValTok{3}\NormalTok{,im_}\DecValTok{4}\NormalTok{,im_}\DecValTok{5}\NormalTok{,im_}\DecValTok{6}\NormalTok{,im_}\DecValTok{7}\NormalTok{,im_}\DecValTok{8}\NormalTok{,im_}\DecValTok{9}\NormalTok{,im_}\DecValTok{10}\NormalTok{,im_}\DecValTok{11}\NormalTok{)}
+\NormalTok{img <-}\StringTok{ }\KeywordTok{c}\NormalTok{(im_}\DecValTok{1}\NormalTok{,im_}\DecValTok{2}\NormalTok{,im_}\DecValTok{3}\NormalTok{,im_}\DecValTok{4}\NormalTok{,im_}\DecValTok{5}\NormalTok{,im_}\DecValTok{6}\NormalTok{,im_}\DecValTok{7}\NormalTok{,im_}\DecValTok{8}\NormalTok{,im_}\DecValTok{9}\NormalTok{,}
+\NormalTok{         im_}\DecValTok{10}\NormalTok{,im_}\DecValTok{11}\NormalTok{)}
 \NormalTok{img <-}\StringTok{ }\KeywordTok{image_scale}\NormalTok{(img, }\StringTok{"600x600"}\NormalTok{)}
 \NormalTok{img <-}\StringTok{ }\KeywordTok{image_animate}\NormalTok{(img, }\DataTypeTok{fps =} \DecValTok{1}\NormalTok{)}
 \end{Highlighting}
@@ -1166,8 +1167,8 @@ image\_read(``C:/Users/nick\_/Downloads/im\_n.jpg'')
 
 \end{frame}
 
-\begin{frame}[fragile]{Filtro geométrico}
-\protect\hypertarget{filtro-geomuxe9trico-1}{}
+\begin{frame}[fragile]{Filtro geométrico primitivo}
+\protect\hypertarget{filtro-geomuxe9trico-primitivo}{}
 
 \small
 
@@ -1177,7 +1178,7 @@ pixelizada:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(imager)}
-\NormalTok{foto <-}\StringTok{ }\KeywordTok{load.image}\NormalTok{(}\StringTok{"C:/Users/nick_/Downloads/foto.jpg"}\NormalTok{)}
+\NormalTok{foto <-}\StringTok{ }\KeywordTok{load.image}\NormalTok{(}\StringTok{"C:/Users/nick_/Downloads/images.jpg"}\NormalTok{)}
 
 \NormalTok{foto2<-}\StringTok{ }\NormalTok{foto }\OperatorTok{%>%}\StringTok{  }\KeywordTok{resize}\NormalTok{(}\DataTypeTok{size_x =} \DecValTok{80}\NormalTok{, }\DataTypeTok{size_y =} \DecValTok{80}\NormalTok{,}
                          \DataTypeTok{interpolation_type =}\NormalTok{ 1L)}
@@ -1188,8 +1189,8 @@ pixelizada:
 
 \end{frame}
 
-\begin{frame}[fragile]{Filtro geométrico}
-\protect\hypertarget{filtro-geomuxe9trico-2}{}
+\begin{frame}[fragile]{Filtro geométrico primitivo}
+\protect\hypertarget{filtro-geomuxe9trico-primitivo-1}{}
 
 \small
 
@@ -1203,6 +1204,171 @@ pixelizada:
 \end{Shaded}
 
 \includegraphics{SLIDES_files/figure-beamer/10.1-1.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]{Filtro geométrico colorido}
+\protect\hypertarget{filtro-geomuxe9trico-colorido}{}
+
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(imager)}
+\KeywordTok{library}\NormalTok{(purrr)}
+\KeywordTok{setwd}\NormalTok{(diretorio aqui)}
+\NormalTok{im <-}\StringTok{ }\KeywordTok{load.iamge}\NormalTok{(}\StringTok{'frida'}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{imresize}\NormalTok{(.}\DecValTok{5}\NormalTok{)}
+
+\NormalTok{qsplit <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(im)}
+\NormalTok{\{}
+  \KeywordTok{imsplit}\NormalTok{(im,}\StringTok{"x"}\NormalTok{,}\DecValTok{2}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{map}\NormalTok{(}\OperatorTok{~}\StringTok{ }\KeywordTok{imsplit}\NormalTok{(.,}\StringTok{"y"}\NormalTok{,}\DecValTok{2}\NormalTok{)) }\OperatorTok{%>%}
+\StringTok{    }\NormalTok{flatten }
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Filtro geométrico colorido}
+\protect\hypertarget{filtro-geomuxe9trico-colorido-1}{}
+
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{qsplit}\NormalTok{(im) }\OperatorTok{%>%}\StringTok{ }\NormalTok{as.imlist }\OperatorTok{%>%}\StringTok{ }\NormalTok{plot}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=2.4in]{IMAGENS/plote}
+
+\begin{center}
+\tiny{}
+\end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Filtro geométrico colorido}
+\protect\hypertarget{filtro-geomuxe9trico-colorido-2}{}
+
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{qunsplit <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(l)}
+\NormalTok{\{}
+  \KeywordTok{list}\NormalTok{(l[}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{],l[}\DecValTok{3}\OperatorTok{:}\DecValTok{4}\NormalTok{]) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{map}\NormalTok{(}\OperatorTok{~}\StringTok{ }\KeywordTok{imappend}\NormalTok{(.,}\StringTok{"y"}\NormalTok{)) }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{imappend}\NormalTok{(}\StringTok{"x"}\NormalTok{)}
+\NormalTok{\}}
+
+\KeywordTok{qsplit}\NormalTok{(im) }\OperatorTok{%>%}\StringTok{ }\NormalTok{qunsplit }\OperatorTok{%>%}\StringTok{ }\NormalTok{plot}
+\NormalTok{imsd <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(im)}
+\NormalTok{\{}
+  \KeywordTok{imsplit}\NormalTok{(im,}\StringTok{"c"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{map_dbl}\NormalTok{(sd) }\OperatorTok{%>%}\StringTok{ }\NormalTok{max}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Filtro geométrico colorido}
+\protect\hypertarget{filtro-geomuxe9trico-colorido-3}{}
+
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{refine <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(l)}
+\NormalTok{\{}\ControlFlowTok{if}\NormalTok{ (}\KeywordTok{is.cimg}\NormalTok{(l)) }\CommentTok{# Nós temos uma folha}
+\NormalTok{  \{qs <-}\StringTok{ }\KeywordTok{qsplit}\NormalTok{(l) }\CommentTok{# Separa}
+    \ControlFlowTok{if}\NormalTok{ (}\KeywordTok{any}\NormalTok{(}\KeywordTok{dim}\NormalTok{(l)[}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{] }\OperatorTok{<=}\StringTok{ }\DecValTok{4}\NormalTok{)) }\CommentTok{# Quadrantes são muito pequenos}
+\NormalTok{    \{qs}\OperatorTok{$}\NormalTok{sds <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{4}\NormalTok{) }\CommentTok{# Impede refinamentos adicionais    }
+\NormalTok{    \}}\ControlFlowTok{else}
+\NormalTok{    \{qs}\OperatorTok{$}\NormalTok{sds <-}\StringTok{ }\KeywordTok{map_dbl}\NormalTok{(qs,imsd) }
+\NormalTok{      \}qs\}}
+  \ControlFlowTok{else} \CommentTok{# Não é uma folha, explora mais adiante}
+\NormalTok{  \{indm <-}\StringTok{ }\KeywordTok{which.max}\NormalTok{(l}\OperatorTok{$}\NormalTok{sds) }
+\NormalTok{    l[[indm]] <-}\StringTok{ }\KeywordTok{refine}\NormalTok{(l[[indm]]) }\CommentTok{# Refina}
+\NormalTok{    l}\OperatorTok{$}\NormalTok{sds[indm] <-}\StringTok{ }\KeywordTok{max}\NormalTok{(l[[indm]]}\OperatorTok{$}\NormalTok{sds) }
+\NormalTok{    l\}\}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Filtro geométrico colorido}
+\protect\hypertarget{filtro-geomuxe9trico-colorido-4}{}
+
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rebuild <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(l,}\DataTypeTok{borders=}\OtherTok{FALSE}\NormalTok{)}
+\NormalTok{\{}\KeywordTok{map}\NormalTok{(l[}\OperatorTok{-}\DecValTok{5}\NormalTok{],}\OperatorTok{~}\StringTok{ }\ControlFlowTok{if}\NormalTok{ (}\KeywordTok{is.cimg}\NormalTok{(.)) }\KeywordTok{meanim}\NormalTok{(.,}\DataTypeTok{borders=}\NormalTok{borders)}
+     \ControlFlowTok{else} \KeywordTok{rebuild}\NormalTok{(.,}\DataTypeTok{borders=}\NormalTok{borders)) }\OperatorTok{%>%}\StringTok{ }\NormalTok{qunsplit\}}
+\CommentTok{# Produz uma imagem que é uma média das imagens}
+\NormalTok{meanim <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(im,}\DataTypeTok{borders=}\OtherTok{FALSE}\NormalTok{)}
+\NormalTok{\{im <-}\StringTok{ }\KeywordTok{imsplit}\NormalTok{(im,}\StringTok{"c"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{map}\NormalTok{(}\OperatorTok{~}\StringTok{ }\DecValTok{0}\OperatorTok{*}\NormalTok{. }\OperatorTok{+}\StringTok{ }\KeywordTok{mean}\NormalTok{(.)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{imappend}\NormalTok{(}\StringTok{"c"}\NormalTok{)}
+  \ControlFlowTok{if}\NormalTok{ (borders)}
+\NormalTok{  \{im[}\KeywordTok{px.borders}\NormalTok{(im)] <-}\StringTok{ }\DecValTok{0}
+\NormalTok{  \}im\}}
+\CommentTok{# Depois de 1200 interações}
+\KeywordTok{iter.refine}\NormalTok{(im,}\DecValTok{1200}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{rebuild}\NormalTok{(}\DataTypeTok{borders=}\NormalTok{F) }\OperatorTok{%>%}\StringTok{ }\NormalTok{plot}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}{Filtro geométrico colorido}
+\protect\hypertarget{filtro-geomuxe9trico-colorido-5}{}
+
+\small
+
+\includegraphics[width=4.4in]{IMAGENS/images}
+
+\begin{center}
+\tiny{}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Filtro geométrico colorido}
+\protect\hypertarget{filtro-geomuxe9trico-colorido-6}{}
+
+\small
+
+\includegraphics[width=4.4in]{IMAGENS/images2}
+
+\begin{center}
+\tiny{}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Filtro geométrico colorido}
+\protect\hypertarget{filtro-geomuxe9trico-colorido-7}{}
+
+\small
+
+\includegraphics[width=4.4in]{IMAGENS/guilherme}
+
+\begin{center}
+\tiny{}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Filtro geométrico colorido}
+\protect\hypertarget{filtro-geomuxe9trico-colorido-8}{}
+
+\small
+
+\includegraphics[width=4.4in]{IMAGENS/guilherme2}
+
+\begin{center}
+\tiny{}
+\end{center}
 
 \end{frame}
 
@@ -1315,8 +1481,8 @@ pixelizada:
 
 \end{frame}
 
-\begin{frame}[fragile]{Reconhecimneto de imagem - Remodelagem}
-\protect\hypertarget{reconhecimneto-de-imagem---remodelagem}{}
+\begin{frame}[fragile]{Reconhecimento de imagem - Remodelagem}
+\protect\hypertarget{reconhecimento-de-imagem---remodelagem}{}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1332,8 +1498,8 @@ pixelizada:
 
 \end{frame}
 
-\begin{frame}[fragile]{Reconhecimneto de imagem - Criação de labels}
-\protect\hypertarget{reconhecimneto-de-imagem---criauxe7uxe3o-de-labels}{}
+\begin{frame}[fragile]{Reconhecimento de imagem - Criação de labels}
+\protect\hypertarget{reconhecimento-de-imagem---criauxe7uxe3o-de-labels}{}
 
 \begin{Shaded}
 \begin{Highlighting}[]

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7250 64-bit) (preloaded format=xelatex 2019.11.16)  19 NOV 2019 18:07
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7250 64-bit) (preloaded format=xelatex 2019.11.16)  19 NOV 2019 23:39
 entering extended mode
 **./SLIDES.tex
 (SLIDES.tex
@@ -2255,7 +2255,7 @@ Overfull \vbox (26.64769pt too high) detected at line 960
 \openout4 = `SLIDES.vrb'.
 
 (SLIDES.vrb)
-Overfull \vbox (17.27878pt too high) detected at line 1109
+Overfull \vbox (17.27878pt too high) detected at line 1110
  []
 
 [48
@@ -2269,7 +2269,7 @@ Overfull \vbox (17.27878pt too high) detected at line 1109
 \openout4 = `SLIDES.vrb'.
 
 (SLIDES.vrb)
-Overfull \vbox (16.52878pt too high) detected at line 1154
+Overfull \vbox (16.52878pt too high) detected at line 1155
  []
 
 [50
@@ -2278,7 +2278,7 @@ Overfull \vbox (16.52878pt too high) detected at line 1154
 File: IMAGENS/Frida.jpg Graphic file (type bmp)
 <IMAGENS/Frida.jpg>
 
-Overfull \vbox (51.76547pt too high) detected at line 1167
+Overfull \vbox (51.76547pt too high) detected at line 1168
  []
 
 [51
@@ -2295,39 +2295,40 @@ Overfull \vbox (51.76547pt too high) detected at line 1167
 File: SLIDES_files/figure-beamer/10.1-1.pdf Graphic file (type pdf)
 <use SLIDES_files/figure-beamer/10.1-1.pdf>
 )
-Overfull \vbox (79.04297pt too high) detected at line 1207
+Overfull \vbox (79.04297pt too high) detected at line 1208
  []
 
 [53
 
 ]
-File: IMAGENS/Keras_logo.png Graphic file (type bmp)
-<IMAGENS/Keras_logo.png>
+\openout4 = `SLIDES.vrb'.
 
-Overfull \hbox (17.92308pt too wide) in paragraph at lines 1218--1218
-[][]  
- []
-
-[54
+(SLIDES.vrb) [54
 
 ]
-File: IMAGENS/TensorFlow_logo.png Graphic file (type bmp)
-<IMAGENS/TensorFlow_logo.png>
+\openout4 = `SLIDES.vrb'.
 
-Overfull \hbox (17.93782pt too wide) in paragraph at lines 1229--1229
-[][]  
+(SLIDES.vrb
+File: IMAGENS/plote.png Graphic file (type bmp)
+<IMAGENS/plote.png>
+)
+Overfull \vbox (50.83066pt too high) detected at line 1249
  []
 
 [55
 
 ]
-File: IMAGENS/Anaconda.png Graphic file (type bmp)
-<IMAGENS/Anaconda.png>
-[56
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [56
 
 ]
-File: IMAGENS/Avioes_carros.jpg Graphic file (type bmp)
-<IMAGENS/Avioes_carros.jpg>
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb)
+Overfull \vbox (15.90878pt too high) detected at line 1297
+ []
+
 [57
 
 ]
@@ -2336,58 +2337,131 @@ File: IMAGENS/Avioes_carros.jpg Graphic file (type bmp)
 (SLIDES.vrb) [58
 
 ]
-\openout4 = `SLIDES.vrb'.
+File: IMAGENS/images.jpg Graphic file (type bmp)
+<IMAGENS/images.jpg>
 
-(SLIDES.vrb) [59
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [60
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [61
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [62
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [63
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [64
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [65
-
-]
-\openout4 = `SLIDES.vrb'.
-
-(SLIDES.vrb) [66
-
-]
-File: IMAGENS/modelo_grafico.png Graphic file (type bmp)
-<IMAGENS/modelo_grafico.png>
-
-Overfull \vbox (24.9634pt too high) detected at line 1404
+Overfull \hbox (10.70074pt too wide) in paragraph at lines 1334--1334
+[][]  
  []
 
-[67
+[59
+
+]
+File: IMAGENS/images2.png Graphic file (type bmp)
+<IMAGENS/images2.png>
+
+Overfull \hbox (10.7216pt too wide) in paragraph at lines 1347--1347
+[][]  
+ []
+
+[60
+
+]
+File: IMAGENS/guilherme.jpg Graphic file (type bmp)
+<IMAGENS/guilherme.jpg>
+
+Overfull \vbox (51.78365pt too high) detected at line 1360
+ []
+
+[61
+
+]
+File: IMAGENS/guilherme2.png Graphic file (type bmp)
+<IMAGENS/guilherme2.png>
+
+Overfull \vbox (51.7818pt too high) detected at line 1373
+ []
+
+[62
+
+]
+File: IMAGENS/Keras_logo.png Graphic file (type bmp)
+<IMAGENS/Keras_logo.png>
+
+Overfull \hbox (17.92308pt too wide) in paragraph at lines 1384--1384
+[][]  
+ []
+
+[63
+
+]
+File: IMAGENS/TensorFlow_logo.png Graphic file (type bmp)
+<IMAGENS/TensorFlow_logo.png>
+
+Overfull \hbox (17.93782pt too wide) in paragraph at lines 1395--1395
+[][]  
+ []
+
+[64
+
+]
+File: IMAGENS/Anaconda.png Graphic file (type bmp)
+<IMAGENS/Anaconda.png>
+[65
+
+]
+File: IMAGENS/Avioes_carros.jpg Graphic file (type bmp)
+<IMAGENS/Avioes_carros.jpg>
+[66
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [67
 
 ]
 \openout4 = `SLIDES.vrb'.
 
 (SLIDES.vrb) [68
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [69
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [70
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [71
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [72
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [73
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [74
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [75
+
+]
+File: IMAGENS/modelo_grafico.png Graphic file (type bmp)
+<IMAGENS/modelo_grafico.png>
+
+Overfull \vbox (24.9634pt too high) detected at line 1570
+ []
+
+[76
+
+]
+\openout4 = `SLIDES.vrb'.
+
+(SLIDES.vrb) [77
 
 ]
 \tf@nav=\write6
@@ -2399,22 +2473,22 @@ Overfull \vbox (24.9634pt too high) detected at line 1404
 \tf@snm=\write8
 \openout8 = `SLIDES.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1421.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1421.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1587.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1587.
 (SLIDES.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1421.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1421.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1587.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1587.
  ) 
 Here is how much of TeX's memory you used:
- 43245 strings out of 427240
- 841409 string characters out of 3141440
- 1061965 words of memory out of 3000000
- 46981 multiletter control sequences out of 15000+200000
+ 43350 strings out of 427240
+ 843193 string characters out of 3141440
+ 1062892 words of memory out of 3000000
+ 47071 multiletter control sequences out of 15000+200000
  535872 words of font info for 63 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  71i,13n,115p,1809b,710s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on SLIDES.pdf (68 pages).
+Output written on SLIDES.pdf (77 pages).
 
 ! log4cxx: setFile(C:\Users\nick_\AppData\Local\MiKTeX\2.9\miktex\log/xelatex.log,true) call failed.
 ! log4cxx: IO Exception : status code = 720005

@@ -456,7 +456,8 @@ im_11 <- image_annotate(im_11, "Novembro", size = 27,
 # Exemplo de GIF (Mês por frame com anotações)
 
 ```{r 7.3.2, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
-img <- c(im_1,im_2,im_3,im_4,im_5,im_6,im_7,im_8,im_9,im_10,im_11)
+img <- c(im_1,im_2,im_3,im_4,im_5,im_6,im_7,im_8,im_9,
+         im_10,im_11)
 img <- image_scale(img, "600x600")
 img <- image_animate(img, fps = 1)
 ```
@@ -588,7 +589,7 @@ image_write(animation, "Imagem.gif")
 print(animation)
 ```
 
-# Filtro geométrico
+# Filtro geométrico 
 \small
 
 \includegraphics[width=4.5in]{IMAGENS/Frida}
@@ -596,14 +597,14 @@ print(animation)
 \tiny{}
 \end{center}
 
-# Filtro geométrico
+# Filtro geométrico primitivo
 \small
 
 Por meio do pacote "imager" é possível estilizar uma imagem e deixá-la pixelizada:
 
 ```{r 10, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 library(imager)
-foto <- load.image("C:/Users/nick_/Downloads/foto.jpg")
+foto <- load.image("C:/Users/nick_/Downloads/images.jpg")
 
 foto2<- foto %>%  resize(size_x = 80, size_y = 80,
                          interpolation_type = 1L)
@@ -611,7 +612,7 @@ suppressMessages(suppressWarnings(library(imager)))
 foto2 <- rowMeans(foto2, dims = 2)
 ```
 
-# Filtro geométrico
+# Filtro geométrico primitivo
 \small
 
 ```{r 10.1, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
@@ -620,6 +621,121 @@ foto2 %>%
   t() %>% 
   image(col = grey.colors(256), axes = FALSE)
 ```
+
+# Filtro geométrico colorido
+\small
+
+```{r 10.2, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+library(imager)
+library(purrr)
+setwd(diretorio aqui)
+im <- load.iamge('frida') %>% imresize(.5)
+
+qsplit <- function(im)
+{
+  imsplit(im,"x",2) %>% map(~ imsplit(.,"y",2)) %>%
+    flatten 
+}
+```
+
+# Filtro geométrico colorido
+\small
+
+```{r 10.3, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+qsplit(im) %>% as.imlist %>% plot
+```
+
+\includegraphics[width=2.4in]{IMAGENS/plote}
+\begin{center}
+\tiny{}
+\end{center}
+
+# Filtro geométrico colorido
+\small
+
+```{r 10.3.1, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+qunsplit <- function(l)
+{
+  list(l[1:2],l[3:4]) %>% map(~ imappend(.,"y")) %>%
+    imappend("x")
+}
+
+qsplit(im) %>% qunsplit %>% plot
+imsd <- function(im)
+{
+  imsplit(im,"c") %>% map_dbl(sd) %>% max
+}
+```
+
+# Filtro geométrico colorido
+\small
+
+```{r 10.4, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+refine <- function(l)
+{if (is.cimg(l)) # Nós temos uma folha
+  {qs <- qsplit(l) # Separa
+    if (any(dim(l)[1:2] <= 4)) # Quadrantes são muito pequenos
+    {qs$sds <- rep(0,4) # Impede refinamentos adicionais	
+    }else
+    {qs$sds <- map_dbl(qs,imsd) 
+      }qs}
+  else # Não é uma folha, explora mais adiante
+  {indm <- which.max(l$sds) 
+    l[[indm]] <- refine(l[[indm]]) # Refina
+    l$sds[indm] <- max(l[[indm]]$sds) 
+    l}}
+```
+
+# Filtro geométrico colorido
+\small
+
+```{r 10.5, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+rebuild <- function(l,borders=FALSE)
+{map(l[-5],~ if (is.cimg(.)) meanim(.,borders=borders)
+     else rebuild(.,borders=borders)) %>% qunsplit}
+# Produz uma imagem que é uma média das imagens
+meanim <- function(im,borders=FALSE)
+{im <- imsplit(im,"c") %>% map(~ 0*. + mean(.)) %>%
+  imappend("c")
+  if (borders)
+  {im[px.borders(im)] <- 0
+  }im}
+# Depois de 1200 interações
+iter.refine(im,1200) %>% rebuild(borders=F) %>% plot
+```
+
+# Filtro geométrico colorido
+\small
+
+\includegraphics[width=4.4in]{IMAGENS/images}
+\begin{center}
+\tiny{}
+\end{center}
+
+# Filtro geométrico colorido
+\small
+
+\includegraphics[width=4.4in]{IMAGENS/images2}
+\begin{center}
+\tiny{}
+\end{center}
+
+# Filtro geométrico colorido
+\small
+
+\includegraphics[width=4.4in]{IMAGENS/guilherme}
+\begin{center}
+\tiny{}
+\end{center}
+
+# Filtro geométrico colorido
+\small
+
+\includegraphics[width=4.4in]{IMAGENS/guilherme2}
+\begin{center}
+\tiny{}
+\end{center}
 
 # Keras
 
@@ -694,7 +810,7 @@ for (i in 1:12) {mypic[[i]] <- array_reshape(mypic[[i]],
                                              c(28,28,3))}
 ```
 
-# Reconhecimneto de imagem - Remodelagem
+# Reconhecimento de imagem - Remodelagem
 
 ```{r 11.4, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 trainx <- NULL
@@ -706,7 +822,7 @@ trainy <- c(0,0,0,0,0,1,1,1,1,1)
 testy <- c(0, 1)
 ```
 
-# Reconhecimneto de imagem - Criação de labels
+# Reconhecimento de imagem - Criação de labels
 
 ```{r 11.5, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 trainLabels <- to_categorical(trainy)
