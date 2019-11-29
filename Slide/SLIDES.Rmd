@@ -631,7 +631,7 @@ library(imager)
 library(purrr)
 setwd(diretorio aqui)
 # Recomendo, para evitar BUGS : setwd(choose.dir())
-im <- load.image('Slide/IMAGENS/images.jpg') %>% imresize(.5)
+im <- load.image('Slide/IMAGENS/frida_antes.jpg') %>% imresize(.5)
 qsplit <- function(im)
 {
   imsplit(im,"x",2) %>% map(~ imsplit(.,"y",2)) %>%
@@ -701,6 +701,18 @@ meanim <- function(im,borders=FALSE)
   if (borders)
   {im[px.borders(im)] <- 0
   }im}
+```
+
+# Filtro geométrico colorido
+\small
+
+```{r 10.5, eval = FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+iter.refine <- function(im,nIter)
+{
+  for (i in seq_len(nIter)) { im <- refine(im) };
+  im
+}
+map_il(1:4,~ iter.refine(im,.) %>% rebuild) %>% plot
 # Depois de 1200 interações
 iter.refine(im,1200) %>% rebuild(borders=F) %>% plot
 ```

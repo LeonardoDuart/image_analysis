@@ -468,7 +468,8 @@ Já para um filtro colorido:
 library(imager)
 library(purrr)
 setwd(diretorio aqui)
-im <- load.iamge('frida') %>% imresize(.5)
+# Recomendo, para evitar BUGS, o seguinte argumento : setwd(choose.dir())
+im <- load.image('Slide/IMAGENS/frida_antes.jpg') %>% imresize(.5)
 qsplit <- function(im)
 {
   imsplit(im,"x",2) %>% map(~ imsplit(.,"y",2)) %>%
@@ -518,6 +519,24 @@ refine <- function(l)
     l[[indm]] <- refine(l[[indm]]) # Refina
     l$sds[indm] <- max(l[[indm]]$sds) 
     l}}
+rebuild <- function(l,borders=FALSE)
+{map(l[-5],~ if (is.cimg(.)) meanim(.,borders=borders)
+     else rebuild(.,borders=borders)) %>% qunsplit}
+# Produz uma imagem que é uma média das imagens
+meanim <- function(im,borders=FALSE)
+{im <- imsplit(im,"c") %>% map(~ 0*. + mean(.)) %>%
+  imappend("c")
+if (borders)
+{im[px.borders(im)] <- 0
+}im}
+iter.refine <- function(im,nIter)
+{
+  for (i in seq_len(nIter)) { im <- refine(im) };
+  im
+}
+map_il(1:4,~ iter.refine(im,.) %>% rebuild) %>% plot
+# Depois de 1200 interações
+iter.refine(im,1200) %>% rebuild(borders=F) %>% plot
 ```
 
 *Imagem no slide 61*
