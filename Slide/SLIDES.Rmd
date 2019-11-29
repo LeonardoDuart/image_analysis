@@ -630,8 +630,8 @@ foto2 %>%
 library(imager)
 library(purrr)
 setwd(diretorio aqui)
-im <- load.iamge('frida') %>% imresize(.5)
-
+# Recomendo, para evitar BUGS : setwd(choose.dir())
+im <- load.image('Slide/IMAGENS/images.jpg') %>% imresize(.5)
 qsplit <- function(im)
 {
   imsplit(im,"x",2) %>% map(~ imsplit(.,"y",2)) %>%
